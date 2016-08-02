@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApplication2
+﻿namespace Banco
 {
     partial class Form1
     {

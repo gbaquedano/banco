@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.IO;
 
-namespace WindowsFormsApplication2{
+namespace Banco{
     public struct datapack{
         public long time;
         public float velangular;
@@ -73,15 +73,19 @@ namespace WindowsFormsApplication2{
         private void VolcarDatos()
         {
             using (var f = File.AppendText(DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".csv")) {
-                
-                var curvaAceleracion = MathNet.Numerics.Interpolation.CubicSpline.InterpolateAkimaSorted(_data.Select(x => (double)x.time).ToArray(), _data.Select(x => (double)x.acelangular).ToArray());
-                var curvaVelocidad = MathNet.Numerics.Interpolation.CubicSpline.InterpolateAkimaSorted(_data.Select(x => (double)x.time).ToArray(), _data.Select(x => (double)x.velangular).ToArray());
+                /*var func = MathNet.Numerics.Fit.PolynomialFunc(_data.Select(x => (double)x.time).ToArray(), _data.Select(x => (double)x.velangular).ToArray(), 5);
 
-                var point = (_data.Last().time - _data[0].time) / _data.Count;
-                for (var i = 0; i < _data.Count*10; i++)
+                var derivada = MathNet.Numerics.Differentiate.DerivativeFunc(func, 1);
+
+                var curvaAceleracion = MathNet.Numerics.Interpolation.CubicSpline.InterpolateAkimaSorted(_data.Select(x => (double)x.time).ToArray(), _data.Select(x => (double)x.acelangular).ToArray());
+                var curvaVelocidad = MathNet.Numerics.Interpolation.CubicSpline.InterpolateAkimaSorted(_data.Select(x => (double)x.time).ToArray(), _data.Select(x => (double)x.velangular).ToArray());*/
+
+                //var point = (_data.Last().time - _data[0].time) / _data.Count;
+                for (var i = 0; i < _data.Count; i++)
                 {
                     //f.WriteLine(_data[i].time + ";" + _data[i].velangular + ";" + _data[i].acelangular);
-                    f.WriteLine(_data[0].time + (point*i*0.1) + ";" + curvaAceleracion.Interpolate(_data[0].time + (point * i * 0.1)) + ";" + curvaVelocidad.Interpolate(_data[0].time + (point * i * 0.1)) + ";" + curvaVelocidad.Differentiate(_data[0].time + (point * i * 0.1)));
+                    //f.WriteLine(_data[0].time + (point*i*0.1) + ";" + curvaAceleracion.Interpolate(_data[0].time + (point * i * 0.1)) + ";" + curvaVelocidad.Interpolate(_data[0].time + (point * i * 0.1)) + ";" + curvaVelocidad.Differentiate(_data[0].time + (point * i * 0.1)));
+                    //f.WriteLine(_data[i].time + ";" + _data[i].velangular + ";" + _data[i].acelangular + ";" + func(_data[i].time) + ";" + derivada(_data[i].time));
                 }
                 _data.Clear();
             }

@@ -19,5 +19,8 @@ C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\D
 C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\System.IO.xml
 C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\System.Runtime.xml
 C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\System.Threading.Tasks.xml
-C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\MathNet.Numerics.dll
-C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\MathNet.Numerics.xml
+C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.Form2.resources
+C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.exe.manifest
+C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\bin\Debug\WindowsFormsApplication2.application
+C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.exe.manifest
+C:\Users\Gabriel\Desktop\WindowsFormsApplication2\WindowsFormsApplication2\obj\Debug\WindowsFormsApplication2.application

@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("WindowsFormsApplication2")]
+[assembly: AssemblyTitle("Banco de Inercia")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("URTEAM")]
-[assembly: AssemblyProduct("WindowsFormsApplication2")]
-[assembly: AssemblyCopyright("Copyright © URTEAM 2016")]
+[assembly: AssemblyCompany("UR Team")]
+[assembly: AssemblyProduct("Banco")]
+[assembly: AssemblyCopyright("Copyright © UR Team 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
