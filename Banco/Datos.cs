@@ -18,6 +18,10 @@ namespace Datos
         public long? NivelGasolina { get; set; }
     }
 
+    public static class Config
+    {
+        public static string PathEnsayos { get; set; } = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Ensayos";
+    }
     public static class Cambios
     {
         public static float ReduccionPrimaria { get; set; }
@@ -166,7 +170,7 @@ namespace Datos
 
         public void VolcarDatos()
         {
-            using (var f = File.AppendText("ensayos\\" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".csv"))
+            using (var f = File.AppendText(Config.PathEnsayos + @"\" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".csv"))
             {
                 for(var i = 0; i < Series.Count; i++)
                 {

@@ -145,9 +145,9 @@ namespace Banco
         private void Form2_Load(object sender, EventArgs e)
         {
             // Crear directorio de ensayos si no existe
-            if (!Directory.Exists("ensayos"))
+            if (!Directory.Exists(Config.PathEnsayos))
             {
-                Directory.CreateDirectory("ensayos");
+                Directory.CreateDirectory(Config.PathEnsayos);
             }
 
             // COM
@@ -403,7 +403,7 @@ namespace Banco
 
         private void ActualizarEnsayos()
         {
-            var files = Directory.EnumerateFiles("ensayos\\", "*.csv").Select((x, i) => new FicheroEnsayo(i)
+            var files = Directory.EnumerateFiles(Config.PathEnsayos + @"\", "*.csv").Select((x, i) => new FicheroEnsayo(i)
             {
                 Nombre = x.Split('\\')[1],
                 Path = x
@@ -656,7 +656,7 @@ namespace Banco
 
         private void butAbrirEnsayos_Click(object sender, EventArgs e)
         {
-            Process.Start(@"ensayos");
+            Process.Start(Config.PathEnsayos);
         }
 
         private void nudOffset_ValueChanged(object sender, EventArgs e)
