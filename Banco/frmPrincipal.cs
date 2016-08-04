@@ -413,7 +413,7 @@ namespace Banco
         {
             var files = Directory.EnumerateFiles(Config.PathEnsayos + @"\", "*.csv").Select((x, i) => new FicheroEnsayo(i)
             {
-                Nombre = x.Split('\\')[1],
+                Nombre = x.Split('\\').Last().Split(new string[] { ".csv" }, StringSplitOptions.RemoveEmptyEntries)[0],
                 Path = x
             }).ToList();
 
