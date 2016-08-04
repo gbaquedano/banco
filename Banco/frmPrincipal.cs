@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -114,10 +116,7 @@ namespace Banco
         private float _maxPar = 0;
         private float _maxPotencia = 0;
         private float _rpmsAMaxPot = 0;
-        //private ConcurrentQueue<DataPack> _queue = new ConcurrentQueue<DataPack>();
-        private Task _readTask;
         private SerialPort _serialPort;
-        private CancellationTokenSource _tokenSource;
 
         FicheroEnsayo _ensayoActual = new FicheroEnsayo("Actual");
 
@@ -144,6 +143,15 @@ namespace Banco
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            // Desktop icon
+            try
+            {
+                CreateDesktopIcon();
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             // Crear directorio de ensayos si no existe
             if (!Directory.Exists(Config.PathEnsayos))
             {
@@ -672,6 +680,55 @@ namespace Banco
             if (cbEnsayos.SelectedIndex >= 0)
             {
                 nudOffset.Value = _seleccionEnsayos[cbEnsayos.SelectedIndex].Offset;
+            }
+        }
+
+        private void CreateDesktopIcon()
+        {
+            ApplicationDeployment ad = ApplicationDeployment.CurrentDeployment;
+
+            if (ad.IsFirstRun)
+            {
+                Assembly assembly = Assembly.GetEntryAssembly();
+                string company = string.Empty;
+                string description = string.Empty;
+
+                if (Attribute.IsDefined(assembly, typeof(AssemblyCompanyAttribute)))
+                {
+                    AssemblyCompanyAttribute ascompany =
+                      (AssemblyCompanyAttribute)Attribute.GetCustomAttribute(
+                        assembly, typeof(AssemblyCompanyAttribute));
+
+                    company = ascompany.Company;
+                }
+                if (Attribute.IsDefined(assembly, typeof(AssemblyDescriptionAttribute)))
+                {
+                    AssemblyDescriptionAttribute asdescription =
+                      (AssemblyDescriptionAttribute)Attribute.GetCustomAttribute(
+                        assembly, typeof(AssemblyDescriptionAttribute));
+
+                    description = asdescription.Description;
+                }
+                if (!string.IsNullOrEmpty(company))
+                {
+                    string desktopPath = string.Empty;
+                    desktopPath = string.Concat(
+                                    Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
+                                    "\\",
+                                    description,
+                                    ".appref-ms");
+
+                    string shortcutName = string.Empty;
+                    shortcutName = string.Concat(
+                                     Environment.GetFolderPath(Environment.SpecialFolder.Programs),
+                                     "\\",
+                                     company,
+                                     "\\",
+                                     description,
+                                     ".appref-ms");
+
+                    System.IO.File.Copy(shortcutName, desktopPath, true);
+                }
             }
         }
     }
