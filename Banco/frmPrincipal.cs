@@ -1,8 +1,5 @@
 ﻿using Datos;
 using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Deployment.Application;
@@ -13,11 +10,8 @@ using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
 using Telerik.WinControls.UI;
 
 namespace Banco
