@@ -250,54 +250,64 @@ namespace Banco
             Cambios.ReduccionPrimaria = float.Parse(txtReduccionPrimaria.Text);
         }
 
-        private DataPackProcesado ReadData()
+        private async Task<DataPackProcesado> ReadData()
         {
-            
+            Debug.WriteLine("Reading...");
             try
             {
                 DataPack data = new DataPack();
-                DataPackProcesado dpp = null;
 
                 string lectura = _serialPort.ReadLine();
-                string[] separators = { "\t" };
-                string[] words = lectura.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
-                if (words.Length > 2)
+                // Calculamos en paralelo
+                return await TaskEx.Run(() =>
                 {
-                    float vAngular, aAngular;
-                    data.Time = long.Parse(words[0])/1000;
-                    float.TryParse(words[1], NumberStyles.Any, CultureInfo.InvariantCulture, out vAngular);
-                    float.TryParse(words[2], NumberStyles.Any, CultureInfo.InvariantCulture, out aAngular);
-                    data.VAngular = vAngular;
-                    data.AAngular = aAngular;
+                    DataPackProcesado dpp = null;
+                    string[] separators = { "\t" };
+                    string[] words = lectura.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
-                    dpp = new DataPackProcesado(data);
-
-                    /// Esto es una guarrada
-                    var arrancado = dpp.Rpm >= _rpmsInicio;
-                    var oldGrabando = Grabando;
-                    Grabando = arrancado || _grabando_manual;
-                    /// Fin de una guarrada
-
-                    if (Grabando)
+                    if (words.Length > 2)
                     {
-                        if (!_primerTime.HasValue)
+                        float vAngular, aAngular;
+                        data.Time = long.Parse(words[0]) / 1000;
+                        float.TryParse(words[1], NumberStyles.Any, CultureInfo.InvariantCulture, out vAngular);
+                        float.TryParse(words[2], NumberStyles.Any, CultureInfo.InvariantCulture, out aAngular);
+                        data.VAngular = vAngular;
+                        data.AAngular = aAngular;
+
+                        dpp = new DataPackProcesado(data);
+
+                        /// Esto es una guarrada
+                        var arrancado = dpp.Rpm >= _rpmsInicio;
+                        var oldGrabando = Grabando;
+                        Grabando = arrancado || _grabando_manual;
+                        /// Fin de una guarrada
+
+                        if (Grabando)
                         {
-                            _primerTime = dpp.Time;
-                            dpp.TTime = 0;
-                        }else{
-                            dpp.TTime = dpp.Time - _primerTime.Value;
+                            if (!_primerTime.HasValue)
+                            {
+                                _primerTime = dpp.Time;
+                                dpp.TTime = 0;
+                            }
+                            else
+                            {
+                                dpp.TTime = dpp.Time - _primerTime.Value;
+                            }
+                        }
+                        else
+                        {
+                            dpp.TTime = dpp.Time;
                         }
                     }
-                    else
-                    {
-                        dpp.TTime = dpp.Time;
-                    }
-                }
-                return dpp;
-            }catch(InvalidOperationException ex){
-                throw ex;
-            }catch(TimeoutException ex){
+
+                    if (dpp.Rpm > _maxRpms) _maxRpms = dpp.Rpm.Value;
+                    if (dpp.Par > _maxPar) { _maxPar = dpp.Par.Value; _rpmsAMaxPar = dpp.Rpm.Value; }
+                    if (dpp.Potencia > _maxPotencia) { _maxPotencia = dpp.Potencia.Value; _rpmsAMaxPot = dpp.Rpm.Value; }
+
+                    return dpp;
+                });
+            }catch(Exception ex){
                 throw ex;
             }
         }
@@ -309,70 +319,80 @@ namespace Banco
                 try
                 {
                     _init = false;
-                    _tokenSource = new CancellationTokenSource();
-                    _serialPort = new SerialPort(lbCom.SelectedItem.ToString(), int.Parse(lbBaud.SelectedItem.ToString()));
-                    _serialPort.ReadTimeout = 500;
-                    _serialPort.WriteTimeout = 500;
-
-                    _serialPort.Open();
-
-                    butConexion.Text = "Desconectar";
-
-                    _readTask = TaskEx.Run(() =>
-                    {
-                        _serialPort.DiscardInBuffer();
-                        while (!_tokenSource.Token.IsCancellationRequested)
-                        {
-                            var data = ReadData();
-
-                            if (data != null)
-                            {
-                                if (data.Rpm > _maxRpms) _maxRpms = data.Rpm.Value;
-                                if (data.Par > _maxPar) { _maxPar = data.Par.Value; _rpmsAMaxPar = data.Rpm.Value; }
-                                if (data.Potencia > _maxPotencia) { _maxPotencia = data.Potencia.Value; _rpmsAMaxPot = data.Rpm.Value; }
-
-                                Invoke((MethodInvoker)delegate
-                                {
-                                    gaugeRpm.Value = data.Rpm.Value;
-                                    gaugePar.Value = data.Par.Value;
-                                    gaugePotencia.Value = data.Potencia.Value;
-
-                                    radialGaugeNeedle2.Value = _maxRpms;
-                                    radialGaugeNeedle4.Value = _maxPar;
-                                    radialGaugeSingleLabel6.LabelText = _rpmsAMaxPar.ToString("0");
-                                    radialGaugeNeedle6.Value = _maxPotencia;
-                                    radialGaugeSingleLabel10.LabelText = _rpmsAMaxPot.ToString("0");
-
-                                    txtRpm.Text = data.Rpm.ToString();
-                                    txtPar.Text = (data.AAngular * Volante.Inercia).ToString();
-                                });
-                            }
-                            
-                            if (Grabando)
-                            {
-                                _ensayoActual.FillData(data);
-                            }
-                        }
-                        Console.WriteLine("Cancelled");
-                        _serialPort.Close();
-                    });
+                    SetConexionSerie(true);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error conectando al puerto COM:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    SetConexionSerie(false);
                 }
             }else{
-                _tokenSource.Cancel();
+                SetConexionSerie(false);
+            }
+        }
+
+        private void SetConexionSerie(bool activa)
+        {
+            if (activa)
+            {
+                _serialPort = new SerialPort(lbCom.SelectedItem.ToString(), int.Parse(lbBaud.SelectedItem.ToString()));
+                _serialPort.ReadTimeout = 500;
+                _serialPort.WriteTimeout = 500;
+                _serialPort.DataReceived += _serialPort_DataReceived;
+                _serialPort.ErrorReceived += _serialPort_ErrorReceived;
+                _serialPort.Open();
+                _serialPort.DiscardInBuffer();
+                butConexion.Text = "Desconectar";
+            }
+            else
+            {
+                if (_serialPort != null && _serialPort.IsOpen)
+                {
+                    _serialPort.Close();
+                }
                 butConexion.Text = "Conectar";
             }
         }
 
+        private void _serialPort_ErrorReceived(object sender, SerialErrorReceivedEventArgs e)
+        {
+            SetConexionSerie(false);
+        }
+
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_tokenSource != null && !_tokenSource.Token.IsCancellationRequested)
+            SetConexionSerie(false);
+        }
+
+        private async void _serialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            //Debug.WriteLine("Data received");
+            var data = await ReadData();
+            try
             {
-                _tokenSource.Cancel();
-                _readTask.Wait(_tokenSource.Token);
+                Invoke((MethodInvoker)delegate
+                {
+                    if (Grabando)
+                    {
+                        _ensayoActual.FillData(data);
+                    }
+
+                    gaugeRpm.Value = data.Rpm.Value;
+                    gaugePar.Value = data.Par.Value;
+                    gaugePotencia.Value = data.Potencia.Value;
+
+                    radialGaugeNeedle2.Value = _maxRpms;
+                    radialGaugeNeedle4.Value = _maxPar;
+                    radialGaugeSingleLabelRpmsMaxPar.LabelText = _rpmsAMaxPar.ToString("0");
+                    radialGaugeNeedle6.Value = _maxPotencia;
+                    radialGaugeSingleLabel10.LabelText = _rpmsAMaxPot.ToString("0");
+
+                    txtRpm.Text = data.Rpm.ToString();
+                    txtPar.Text = (data.AAngular * Volante.Inercia).ToString();
+                });
+            }catch( Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
             }
         }
 
@@ -545,19 +565,6 @@ namespace Banco
             gridDst.NumberOfColors = gridSrc.NumberOfColors;
         }
 
-        private void txtOffset_TextChanged(object sender, EventArgs e)
-        {
-            /*
-            Console.WriteLine("Changed");
-            var fichero = cbEnsayos.SelectedItem as FicheroEnsayo;
-            if (fichero != null)
-            {
-                long res = 0;
-                long.TryParse(txtOffset.Text, out res);
-                fichero.Offset = res;
-            }*/
-        }
-
         private void txtRpmInicio_TextChanged(object sender, EventArgs e)
         {
             double valor = 0;
@@ -611,11 +618,6 @@ namespace Banco
             {
                 ActualizarEnsayos();
             }
-        }
-
-        private void gaugeRpm_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void nudMarcha_ValueChanged(object sender, EventArgs e)

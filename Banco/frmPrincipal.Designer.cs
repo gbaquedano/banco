@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.CartesianArea cartesianArea5 = new Telerik.WinControls.UI.CartesianArea();
             Telerik.WinControls.UI.CartesianArea cartesianArea1 = new Telerik.WinControls.UI.CartesianArea();
             Telerik.WinControls.UI.CartesianArea cartesianArea2 = new Telerik.WinControls.UI.CartesianArea();
             Telerik.WinControls.UI.CartesianArea cartesianArea3 = new Telerik.WinControls.UI.CartesianArea();
+            Telerik.WinControls.UI.CartesianArea cartesianArea4 = new Telerik.WinControls.UI.CartesianArea();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelSpring = new System.Windows.Forms.ToolStripStatusLabel();
@@ -68,8 +68,6 @@
             this.radialGaugeNeedle5 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
             this.radialGaugeNeedle6 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
             this.radialGaugeSingleLabel7 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel8 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel9 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.radialGaugeSingleLabel10 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.gaugeRpm = new Telerik.WinControls.UI.Gauges.RadRadialGauge();
             this.radialGaugeArc1 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
@@ -83,7 +81,7 @@
             this.radialGaugeNeedle1 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
             this.radialGaugeNeedle2 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
             this.radialGaugeSingleLabel1 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel2 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.radialGaugeSingleLabelRPM = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.gaugePar = new Telerik.WinControls.UI.Gauges.RadRadialGauge();
             this.radialGaugeArc3 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
             this.radialGaugeArc4 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
@@ -93,9 +91,8 @@
             this.radialGaugeNeedle3 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
             this.radialGaugeNeedle4 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
             this.radialGaugeSingleLabel3 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel4 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel5 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel6 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.radialGaugeSingleLabelPar = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.radialGaugeSingleLabelRpmsMaxPar = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.splitContainerTiempoReal = new System.Windows.Forms.SplitContainer();
             this.radChartTiempo = new Telerik.WinControls.UI.RadChartView();
@@ -106,6 +103,8 @@
             this.radChartAnalisisTiempo = new Telerik.WinControls.UI.RadChartView();
             this.radChartAnalisisRpms = new Telerik.WinControls.UI.RadChartView();
             this.gbEnsayos = new System.Windows.Forms.GroupBox();
+            this.lblOffset = new System.Windows.Forms.Label();
+            this.nudOffset = new System.Windows.Forms.NumericUpDown();
             this.butAbrirEnsayos = new System.Windows.Forms.Button();
             this.cbEnsayos = new System.Windows.Forms.ComboBox();
             this.butRefrescar = new System.Windows.Forms.Button();
@@ -144,8 +143,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.nudOffset = new System.Windows.Forms.NumericUpDown();
-            this.lblOffset = new System.Windows.Forms.Label();
+            this.radialGaugeSingleLabel2 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.statusStrip1.SuspendLayout();
             this.tabBanco.SuspendLayout();
             this.tabCaptura.SuspendLayout();
@@ -175,10 +173,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.radChartAnalisisTiempo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radChartAnalisisRpms)).BeginInit();
             this.gbEnsayos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarcha)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -480,7 +478,7 @@
             this.radialGaugeSingleLabel11.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.radialGaugeSingleLabel11.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.radialGaugeSingleLabel11.LabelText = "AFR";
-            this.radialGaugeSingleLabel11.LocationPercentage = new System.Drawing.SizeF(0F, 0.3F);
+            this.radialGaugeSingleLabel11.LocationPercentage = new System.Drawing.SizeF(0F, 0.2F);
             this.radialGaugeSingleLabel11.Name = "radialGaugeSingleLabel11";
             this.radialGaugeSingleLabel11.Text = "radialGaugeSingleLabel1";
             this.radialGaugeSingleLabel11.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -507,15 +505,13 @@
             this.radialGaugeNeedle5,
             this.radialGaugeNeedle6,
             this.radialGaugeSingleLabel7,
-            this.radialGaugeSingleLabel8,
-            this.radialGaugeSingleLabel9,
-            this.radialGaugeSingleLabel10});
+            this.radialGaugeSingleLabel10,
+            this.radialGaugeSingleLabel2});
             this.gaugePotencia.Location = new System.Drawing.Point(483, 3);
             this.gaugePotencia.Name = "gaugePotencia";
             this.gaugePotencia.RangeEnd = 40D;
             this.gaugePotencia.Size = new System.Drawing.Size(270, 270);
             this.gaugePotencia.TabIndex = 3;
-            this.gaugePotencia.Text = "RPMs";
             this.gaugePotencia.Value = 0F;
             // 
             // radialGaugeArc5
@@ -620,36 +616,11 @@
             this.radialGaugeSingleLabel7.Text = "radialGaugeSingleLabel1";
             this.radialGaugeSingleLabel7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
-            // radialGaugeSingleLabel8
-            // 
-            this.radialGaugeSingleLabel8.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            this.radialGaugeSingleLabel8.BindValue = true;
-            this.radialGaugeSingleLabel8.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel8.LabelText = "00";
-            this.radialGaugeSingleLabel8.LocationPercentage = new System.Drawing.SizeF(0.4F, 0.2F);
-            this.radialGaugeSingleLabel8.Name = "radialGaugeSingleLabel8";
-            this.radialGaugeSingleLabel8.RightToLeft = false;
-            this.radialGaugeSingleLabel8.Text = "asd\r\n";
-            this.radialGaugeSingleLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.radialGaugeSingleLabel8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel8.TextWrap = false;
-            // 
-            // radialGaugeSingleLabel9
-            // 
-            this.radialGaugeSingleLabel9.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radialGaugeSingleLabel9.LabelText = "A";
-            this.radialGaugeSingleLabel9.LocationPercentage = new System.Drawing.SizeF(-0.2F, 0.5F);
-            this.radialGaugeSingleLabel9.Name = "radialGaugeSingleLabel9";
-            this.radialGaugeSingleLabel9.ScaleTransform = new System.Drawing.SizeF(1F, 1F);
-            this.radialGaugeSingleLabel9.Text = "A RPMs";
-            this.radialGaugeSingleLabel9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            // 
             // radialGaugeSingleLabel10
             // 
             this.radialGaugeSingleLabel10.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             this.radialGaugeSingleLabel10.LabelText = "0";
-            this.radialGaugeSingleLabel10.LocationPercentage = new System.Drawing.SizeF(0.2F, 0.5F);
+            this.radialGaugeSingleLabel10.LocationPercentage = new System.Drawing.SizeF(0F, 0.5F);
             this.radialGaugeSingleLabel10.Name = "radialGaugeSingleLabel10";
             this.radialGaugeSingleLabel10.Text = "radialGaugeSingleLabel6";
             this.radialGaugeSingleLabel10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
@@ -669,7 +640,7 @@
             this.radialGaugeNeedle1,
             this.radialGaugeNeedle2,
             this.radialGaugeSingleLabel1,
-            this.radialGaugeSingleLabel2});
+            this.radialGaugeSingleLabelRPM});
             this.gaugeRpm.Location = new System.Drawing.Point(-19, 3);
             this.gaugeRpm.Name = "gaugeRpm";
             this.gaugeRpm.RangeEnd = 14000D;
@@ -677,7 +648,6 @@
             this.gaugeRpm.TabIndex = 1;
             this.gaugeRpm.Text = "RPMs";
             this.gaugeRpm.Value = 0F;
-            this.gaugeRpm.Click += new System.EventHandler(this.gaugeRpm_Click);
             // 
             // radialGaugeArc1
             // 
@@ -792,17 +762,17 @@
             // 
             this.radialGaugeSingleLabel1.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.radialGaugeSingleLabel1.LabelText = "RPMs";
-            this.radialGaugeSingleLabel1.LocationPercentage = new System.Drawing.SizeF(0F, 0.3F);
+            this.radialGaugeSingleLabel1.LocationPercentage = new System.Drawing.SizeF(0F, 0.2F);
             this.radialGaugeSingleLabel1.Name = "radialGaugeSingleLabel1";
             this.radialGaugeSingleLabel1.Text = "radialGaugeSingleLabel1";
             // 
-            // radialGaugeSingleLabel2
+            // radialGaugeSingleLabelRPM
             // 
-            this.radialGaugeSingleLabel2.BindValue = true;
-            this.radialGaugeSingleLabel2.LabelText = "0";
-            this.radialGaugeSingleLabel2.LocationPercentage = new System.Drawing.SizeF(0F, 0.5F);
-            this.radialGaugeSingleLabel2.Name = "radialGaugeSingleLabel2";
-            this.radialGaugeSingleLabel2.Text = "radialGaugeSingleLabel2";
+            this.radialGaugeSingleLabelRPM.BindValue = true;
+            this.radialGaugeSingleLabelRPM.LabelText = "0";
+            this.radialGaugeSingleLabelRPM.LocationPercentage = new System.Drawing.SizeF(0F, 0.5F);
+            this.radialGaugeSingleLabelRPM.Name = "radialGaugeSingleLabelRPM";
+            this.radialGaugeSingleLabelRPM.Text = "";
             // 
             // gaugePar
             // 
@@ -816,9 +786,8 @@
             this.radialGaugeNeedle3,
             this.radialGaugeNeedle4,
             this.radialGaugeSingleLabel3,
-            this.radialGaugeSingleLabel4,
-            this.radialGaugeSingleLabel5,
-            this.radialGaugeSingleLabel6});
+            this.radialGaugeSingleLabelPar,
+            this.radialGaugeSingleLabelRpmsMaxPar});
             this.gaugePar.Location = new System.Drawing.Point(229, 3);
             this.gaugePar.Name = "gaugePar";
             this.gaugePar.RangeEnd = 40D;
@@ -929,35 +898,27 @@
             this.radialGaugeSingleLabel3.Text = "radialGaugeSingleLabel1";
             this.radialGaugeSingleLabel3.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
-            // radialGaugeSingleLabel4
+            // radialGaugeSingleLabelPar
             // 
-            this.radialGaugeSingleLabel4.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            this.radialGaugeSingleLabel4.BindValue = true;
-            this.radialGaugeSingleLabel4.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel4.LabelText = "00";
-            this.radialGaugeSingleLabel4.LocationPercentage = new System.Drawing.SizeF(0.2F, 0.2F);
-            this.radialGaugeSingleLabel4.Name = "radialGaugeSingleLabel4";
-            this.radialGaugeSingleLabel4.RightToLeft = false;
-            this.radialGaugeSingleLabel4.Text = "asd\r\n";
-            this.radialGaugeSingleLabel4.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.radialGaugeSingleLabel4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel4.TextWrap = false;
+            this.radialGaugeSingleLabelPar.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            this.radialGaugeSingleLabelPar.BindValue = true;
+            this.radialGaugeSingleLabelPar.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabelPar.LabelFormat = "0.0";
+            this.radialGaugeSingleLabelPar.LabelText = "0.0";
+            this.radialGaugeSingleLabelPar.LocationPercentage = new System.Drawing.SizeF(0.3F, 0.2F);
+            this.radialGaugeSingleLabelPar.Name = "radialGaugeSingleLabelPar";
+            this.radialGaugeSingleLabelPar.RightToLeft = false;
+            this.radialGaugeSingleLabelPar.Text = "";
+            this.radialGaugeSingleLabelPar.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radialGaugeSingleLabelPar.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabelPar.TextWrap = false;
             // 
-            // radialGaugeSingleLabel5
+            // radialGaugeSingleLabelRpmsMaxPar
             // 
-            this.radialGaugeSingleLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radialGaugeSingleLabel5.LabelText = "A";
-            this.radialGaugeSingleLabel5.LocationPercentage = new System.Drawing.SizeF(-0.2F, 0.5F);
-            this.radialGaugeSingleLabel5.Name = "radialGaugeSingleLabel5";
-            this.radialGaugeSingleLabel5.ScaleTransform = new System.Drawing.SizeF(1F, 1F);
-            this.radialGaugeSingleLabel5.Text = "A RPMs";
-            // 
-            // radialGaugeSingleLabel6
-            // 
-            this.radialGaugeSingleLabel6.LabelText = "0";
-            this.radialGaugeSingleLabel6.LocationPercentage = new System.Drawing.SizeF(0.2F, 0.5F);
-            this.radialGaugeSingleLabel6.Name = "radialGaugeSingleLabel6";
-            this.radialGaugeSingleLabel6.Text = "radialGaugeSingleLabel6";
+            this.radialGaugeSingleLabelRpmsMaxPar.LabelText = "0";
+            this.radialGaugeSingleLabelRpmsMaxPar.LocationPercentage = new System.Drawing.SizeF(0F, 0.5F);
+            this.radialGaugeSingleLabelRpmsMaxPar.Name = "radialGaugeSingleLabelRpmsMaxPar";
+            this.radialGaugeSingleLabelRpmsMaxPar.Text = "radialGaugeSingleLabel6";
             // 
             // groupBox3
             // 
@@ -993,8 +954,8 @@
             // 
             // radChartTiempo
             // 
-            cartesianArea5.ShowGrid = true;
-            this.radChartTiempo.AreaDesign = cartesianArea5;
+            cartesianArea1.ShowGrid = true;
+            this.radChartTiempo.AreaDesign = cartesianArea1;
             this.radChartTiempo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radChartTiempo.Location = new System.Drawing.Point(0, 0);
             this.radChartTiempo.Name = "radChartTiempo";
@@ -1006,8 +967,8 @@
             // 
             // radChartRpms
             // 
-            cartesianArea1.ShowGrid = true;
-            this.radChartRpms.AreaDesign = cartesianArea1;
+            cartesianArea2.ShowGrid = true;
+            this.radChartRpms.AreaDesign = cartesianArea2;
             this.radChartRpms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radChartRpms.Location = new System.Drawing.Point(0, 0);
             this.radChartRpms.Name = "radChartRpms";
@@ -1065,8 +1026,8 @@
             // 
             // radChartAnalisisTiempo
             // 
-            cartesianArea2.ShowGrid = true;
-            this.radChartAnalisisTiempo.AreaDesign = cartesianArea2;
+            cartesianArea3.ShowGrid = true;
+            this.radChartAnalisisTiempo.AreaDesign = cartesianArea3;
             this.radChartAnalisisTiempo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radChartAnalisisTiempo.Location = new System.Drawing.Point(0, 0);
             this.radChartAnalisisTiempo.Name = "radChartAnalisisTiempo";
@@ -1077,8 +1038,8 @@
             // 
             // radChartAnalisisRpms
             // 
-            cartesianArea3.ShowGrid = true;
-            this.radChartAnalisisRpms.AreaDesign = cartesianArea3;
+            cartesianArea4.ShowGrid = true;
+            this.radChartAnalisisRpms.AreaDesign = cartesianArea4;
             this.radChartAnalisisRpms.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radChartAnalisisRpms.Location = new System.Drawing.Point(0, 0);
             this.radChartAnalisisRpms.Name = "radChartAnalisisRpms";
@@ -1102,6 +1063,43 @@
             this.gbEnsayos.TabIndex = 1;
             this.gbEnsayos.TabStop = false;
             this.gbEnsayos.Text = "Ensayos realizados";
+            // 
+            // lblOffset
+            // 
+            this.lblOffset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblOffset.AutoSize = true;
+            this.lblOffset.Location = new System.Drawing.Point(6, 539);
+            this.lblOffset.Name = "lblOffset";
+            this.lblOffset.Size = new System.Drawing.Size(92, 20);
+            this.lblOffset.TabIndex = 7;
+            this.lblOffset.Text = "Offset (ms):";
+            // 
+            // nudOffset
+            // 
+            this.nudOffset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudOffset.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudOffset.Location = new System.Drawing.Point(104, 537);
+            this.nudOffset.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nudOffset.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.nudOffset.Name = "nudOffset";
+            this.nudOffset.Size = new System.Drawing.Size(93, 26);
+            this.nudOffset.TabIndex = 6;
+            this.nudOffset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudOffset.ValueChanged += new System.EventHandler(this.nudOffset_ValueChanged);
             // 
             // butAbrirEnsayos
             // 
@@ -1497,42 +1495,14 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Relación 1";
             // 
-            // nudOffset
+            // radialGaugeSingleLabel2
             // 
-            this.nudOffset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.nudOffset.Increment = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.nudOffset.Location = new System.Drawing.Point(104, 537);
-            this.nudOffset.Maximum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            0});
-            this.nudOffset.Minimum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            -2147483648});
-            this.nudOffset.Name = "nudOffset";
-            this.nudOffset.Size = new System.Drawing.Size(93, 26);
-            this.nudOffset.TabIndex = 6;
-            this.nudOffset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nudOffset.ValueChanged += new System.EventHandler(this.nudOffset_ValueChanged);
-            // 
-            // lblOffset
-            // 
-            this.lblOffset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblOffset.AutoSize = true;
-            this.lblOffset.Location = new System.Drawing.Point(6, 539);
-            this.lblOffset.Name = "lblOffset";
-            this.lblOffset.Size = new System.Drawing.Size(92, 20);
-            this.lblOffset.TabIndex = 7;
-            this.lblOffset.Text = "Offset (ms):";
+            this.radialGaugeSingleLabel2.BindValue = true;
+            this.radialGaugeSingleLabel2.LabelFormat = "0.0";
+            this.radialGaugeSingleLabel2.LabelText = "0,0";
+            this.radialGaugeSingleLabel2.LocationPercentage = new System.Drawing.SizeF(0.3F, 0.2F);
+            this.radialGaugeSingleLabel2.Name = "radialGaugeSingleLabel2";
+            this.radialGaugeSingleLabel2.Text = "radialGaugeSingleLabel2";
             // 
             // frmPrincipal
             // 
@@ -1582,11 +1552,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.radChartAnalisisRpms)).EndInit();
             this.gbEnsayos.ResumeLayout(false);
             this.gbEnsayos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudMarcha)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1663,7 +1633,7 @@
         private Telerik.WinControls.UI.Gauges.RadialGaugeNeedle radialGaugeNeedle1;
         private Telerik.WinControls.UI.Gauges.RadialGaugeNeedle radialGaugeNeedle2;
         private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel1;
-        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel2;
+        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabelRPM;
         private Telerik.WinControls.UI.Gauges.RadRadialGauge gaugePar;
         private Telerik.WinControls.UI.Gauges.RadialGaugeArc radialGaugeArc3;
         private Telerik.WinControls.UI.Gauges.RadialGaugeArc radialGaugeArc4;
@@ -1673,9 +1643,8 @@
         private Telerik.WinControls.UI.Gauges.RadialGaugeNeedle radialGaugeNeedle3;
         private Telerik.WinControls.UI.Gauges.RadialGaugeNeedle radialGaugeNeedle4;
         private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel3;
-        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel4;
-        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel5;
-        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel6;
+        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabelPar;
+        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabelRpmsMaxPar;
         private Telerik.WinControls.UI.Gauges.RadRadialGauge gaugePotencia;
         private Telerik.WinControls.UI.Gauges.RadialGaugeArc radialGaugeArc5;
         private Telerik.WinControls.UI.Gauges.RadialGaugeArc radialGaugeArc6;
@@ -1685,8 +1654,6 @@
         private Telerik.WinControls.UI.Gauges.RadialGaugeNeedle radialGaugeNeedle5;
         private Telerik.WinControls.UI.Gauges.RadialGaugeNeedle radialGaugeNeedle6;
         private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel7;
-        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel8;
-        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel9;
         private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel10;
         private Telerik.WinControls.UI.Gauges.RadRadialGauge gaugeAfr;
         private Telerik.WinControls.UI.Gauges.RadialGaugeArc radialGaugeArc7;
@@ -1707,5 +1674,6 @@
         private System.Windows.Forms.Button butAbrirEnsayos;
         private System.Windows.Forms.Label lblOffset;
         private System.Windows.Forms.NumericUpDown nudOffset;
+        private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel2;
     }
 }
