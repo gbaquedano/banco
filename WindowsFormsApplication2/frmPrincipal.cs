@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -15,52 +16,91 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Telerik.WinControls.UI;
 
 namespace Banco
 {
     public partial class frmPrincipal : Form
     {
-        // Valores del volante y cambios
-        private Cambios _cambios = new Cambios();
-        private Volante _volante = new Volante();
+        // Ejes de gráficos de tiempo real
+        CategoricalAxis ejeHorizotalTRTiempo = new CategoricalAxis()
+        {
+            MajorTickInterval = 5,
+            LabelInterval = 4,
+            LabelFormatProvider = new FormateaMsAs()
+        };
+        LinearAxis ejeVerticalTRTiempo = new LinearAxis()
+        {
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10
+        };
+        LinearAxis ejeVerticalTRTiempoPar = new LinearAxis()
+        {
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10,
+            HorizontalLocation = Telerik.Charting.AxisHorizontalLocation.Right
+        };
+        LinearAxis ejeHorizotalTRRpms = new LinearAxis()
+        {
+            DesiredTickCount = 30,
+            LabelInterval = 3
+        };
+        LinearAxis ejeVerticalTRRpms = new LinearAxis()
+        {
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10
+        };
+        LinearAxis ejeVerticalTRRpmsPar = new LinearAxis()
+        {
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10,
+            HorizontalLocation = Telerik.Charting.AxisHorizontalLocation.Right
+        };
 
-        // Series
-        private Series _serieVAngular = new Series()
+        // Ejes de gráficos de análisis
+        LinearAxis ejeHorizontalAnalisisTiempo = new LinearAxis()
         {
-            Name = "Velocidad Angular",
-            ChartType = SeriesChartType.Line
+            DesiredTickCount = 30,
+            LabelInterval = 3,
+            LabelFormatProvider = new FormateaMsAs()
         };
-        private Series _serieAAngular = new Series()
+        LinearAxis ejeVerticalAnalisisTiempo = new LinearAxis()
         {
-            Name = "Aceleración Angular",
-            ChartType = SeriesChartType.Line
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10
         };
-        private Series _seriePar = new Series()
+        LinearAxis ejeVerticalAnalisisTiempoPar = new LinearAxis()
         {
-            Name = "Par",
-            ChartType = SeriesChartType.Line
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10,
+            HorizontalLocation = Telerik.Charting.AxisHorizontalLocation.Right
         };
-        private Series _serieRpms = new Series()
+        LinearAxis ejeHorizontalAnalisisRpms = new LinearAxis()
         {
-            Name = "RPMs",
-            ChartType = SeriesChartType.Line
+            DesiredTickCount = 30,
+            LabelInterval = 3
+        };
+        LinearAxis ejeVerticalAnalisisRpms = new LinearAxis()
+        {
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10
+        };
+        LinearAxis ejeVerticalAnalisisRpmsPar = new LinearAxis()
+        {
+            AxisType = Telerik.Charting.AxisType.Second,
+            DesiredTickCount = 10,
+            HorizontalLocation = Telerik.Charting.AxisHorizontalLocation.Right
         };
 
         // Recogida y guardado de datos
         private bool Grabando {
-            get { return _grabando; } // || _grabando_manual; }
+            get { return _grabando; }
             set {
                 if(value != _grabando)
                 {
                     _grabando = value;
                     SetGrabando(_grabando);
                 }
-                /*
-                if ((value || _grabando_manual) != _grabando)
-                {
-                    _grabando = (value || _grabando_manual);
-                    SetGrabando(_grabando);
-                }*/
             }
         }
         private bool _init = false;
@@ -74,10 +114,12 @@ namespace Banco
         private float _maxPar = 0;
         private float _maxPotencia = 0;
         private float _rpmsAMaxPot = 0;
-        private ConcurrentQueue<DataPack> _queue = new ConcurrentQueue<DataPack>();
+        //private ConcurrentQueue<DataPack> _queue = new ConcurrentQueue<DataPack>();
         private Task _readTask;
         private SerialPort _serialPort;
         private CancellationTokenSource _tokenSource;
+
+        FicheroEnsayo _ensayoActual = new FicheroEnsayo("Actual");
 
         // Ensayos de la pestaña selección
         BindingList<FicheroEnsayo> _ensayos = new BindingList<FicheroEnsayo>();
@@ -95,9 +137,9 @@ namespace Banco
 
         public void UpdateConfig()
         {
-            _volante.Peso = double.Parse(txtPesoVolante.Text);
-            _volante.Radio = double.Parse(txtRadioVolante.Text);
-            txtInerciaVolante.Text = _volante.Inercia.ToString();
+            Volante.Peso = float.Parse(txtPesoVolante.Text);
+            Volante.Radio = float.Parse(txtRadioVolante.Text);
+            txtInerciaVolante.Text = Volante.Inercia.ToString();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -115,83 +157,149 @@ namespace Banco
             // Inicialización de valores
             UpdateConfig();
 
-            // Añadir a series
-            chartPrincipal.Series.Add(_serieVAngular);
-            chartPrincipal.Series.Add(_serieAAngular);
-            chartPrincipal.Series.Add(_seriePar);
-            chartPrincipal.Series.Add(_serieRpms);
-
             // Ensayos
             lbEnsayos.DataSource = _ensayos;
             cbEnsayos.DataSource = _seleccionEnsayos;
-            chartAnalisis.ChartAreas[0].AxisX.Minimum = 0;
 
             double valor = 0;
             double.TryParse(txtRpmInicio.Text, out valor);
             _rpmsInicio = valor;
+
+            // Series de Tiempo Real
+
+            radChartTiempo.Series.Add(new LineSeries()
+            {
+                LegendTitle = _ensayoActual.NombreSerieRpms,
+                Name = _ensayoActual.NombreSerieRpms,
+                DataSource = _ensayoActual.Series,
+                ValueMember = "Rpm",
+                CategoryMember = "TTime",
+                HorizontalAxis = ejeHorizotalTRTiempo,
+                VerticalAxis = ejeVerticalTRTiempo
+            });
+
+            radChartTiempo.Series.Add(new LineSeries()
+            {
+                LegendTitle = _ensayoActual.NombreSeriePar,
+                Name = _ensayoActual.NombreSeriePar,
+                DataSource = _ensayoActual.Series,
+                ValueMember = "Par",
+                CategoryMember = "TTime",
+                HorizontalAxis = ejeHorizotalTRTiempo,
+                VerticalAxis = ejeVerticalTRTiempoPar
+            });
+
+            radChartRpms.Series.Add(new ScatterLineSeries()
+            {
+                LegendTitle = _ensayoActual.NombreSeriePotencia,
+                Name = _ensayoActual.NombreSeriePotencia,
+                DataSource = _ensayoActual.Series,
+                ValueMember = "Rpm",
+                CategoryMember = "Potencia",
+                PointSize = SizeF.Empty,
+                HorizontalAxis = ejeHorizotalTRRpms,
+                VerticalAxis = ejeVerticalTRRpms
+            });
+
+            radChartRpms.Series.Add(new ScatterLineSeries()
+            {
+                LegendTitle = _ensayoActual.NombreSeriePar,
+                Name = _ensayoActual.NombreSeriePar,
+                DataSource = _ensayoActual.Series,
+                ValueMember = "Rpm",
+                CategoryMember = "Par",
+                PointSize = SizeF.Empty,
+                HorizontalAxis = ejeHorizotalTRRpms,
+                VerticalAxis = ejeVerticalTRRpmsPar
+            });
+
+            // Configuración de gráficos
+
+            ChartPanZoomController panZoomControllerTiempo = new ChartPanZoomController();
+            ChartPanZoomController panZoomControllerRpms = new ChartPanZoomController();
+            panZoomControllerTiempo.PanZoomMode = ChartPanZoomMode.Both;
+            radChartAnalisisTiempo.Controllers.Add(panZoomControllerTiempo);
+            panZoomControllerRpms.PanZoomMode = ChartPanZoomMode.Both;
+            radChartAnalisisRpms.Controllers.Add(panZoomControllerRpms);
+            radChartAnalisisTiempo.View.Margin = new Padding(2);
+            radChartAnalisisRpms.View.Margin = new Padding(2);
+            radChartTiempo.View.Margin = new Padding(2);
+            radChartRpms.View.Margin = new Padding(2);
+
+            radChartAnalisisTiempo.ChartElement.LegendPosition = LegendPosition.Bottom;
+            radChartAnalisisTiempo.ChartElement.LegendElement.StackElement.Orientation = Orientation.Horizontal;
+
+            radChartAnalisisRpms.ChartElement.LegendPosition = LegendPosition.Bottom;
+            radChartAnalisisRpms.ChartElement.LegendElement.StackElement.Orientation = Orientation.Horizontal;
+
+            splitContainerTiempoReal.SplitterWidth = 2;
+            splitContainerAnalisis.SplitterWidth = 2;
+
+            CopiarGrid(radChartTiempo, radChartRpms);
+            CopiarGrid(radChartAnalisisRpms, radChartAnalisisTiempo);
+            CopiarGrid(radChartAnalisisTiempo, radChartAnalisisRpms);
+
+            // Valores de cambios
+            Cambios.Seleccionada = (int)nudMarcha.Value;
+            Cambios.Relacion1 = float.Parse(txtRelacion1.Text);
+            Cambios.Relacion2 = float.Parse(txtRelacion2.Text);
+            Cambios.Relacion3 = float.Parse(txtRelacion3.Text);
+            Cambios.Relacion4 = float.Parse(txtRelacion4.Text);
+            Cambios.Relacion5 = float.Parse(txtRelacion5.Text);
+            Cambios.Relacion6 = float.Parse(txtRelacion6.Text);
+            Cambios.ReduccionPrimaria = float.Parse(txtReduccionPrimaria.Text);
         }
 
-        private DataPack ReadData()
+        private DataPackProcesado ReadData()
         {
-            DataPack data = new DataPack();
+            
             try
             {
-                string lectura = _serialPort.ReadLine();
+                DataPack data = new DataPack();
+                DataPackProcesado dpp = null;
 
+                string lectura = _serialPort.ReadLine();
                 string[] separators = { "\t" };
                 string[] words = lectura.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+
                 if (words.Length > 2)
                 {
                     float vAngular, aAngular;
                     data.Time = long.Parse(words[0])/1000;
-
                     float.TryParse(words[1], NumberStyles.Any, CultureInfo.InvariantCulture, out vAngular);
                     float.TryParse(words[2], NumberStyles.Any, CultureInfo.InvariantCulture, out aAngular);
                     data.VAngular = vAngular;
                     data.AAngular = aAngular;
 
+                    dpp = new DataPackProcesado(data);
+
                     /// Esto es una guarrada
-                    var arrancado = vAngular >= _rpmsInicio;
+                    var arrancado = dpp.Rpm >= _rpmsInicio;
                     var oldGrabando = Grabando;
                     Grabando = arrancado || _grabando_manual;
-                    if (Grabando) { 
-                        if (Grabando != oldGrabando)
-                        {
-                            Invoke((MethodInvoker)delegate
-                            {
-                                chartPrincipal.ChartAreas[0].AxisX.Minimum = data.Time;
-                                chartPrincipal.ChartAreas[0].AxisX.Maximum = data.Time + 2500;
-                            });
-                        }else{
-                            Invoke((MethodInvoker)delegate
-                            {
-                                chartPrincipal.ChartAreas[0].AxisX.Maximum = data.Time + 2500;
-                            });
-                        }
-                    }
                     /// Fin de una guarrada
 
                     if (Grabando)
                     {
                         if (!_primerTime.HasValue)
                         {
-                            _primerTime = data.Time;
-                            data.TTime = 0;
+                            _primerTime = dpp.Time;
+                            dpp.TTime = 0;
                         }else{
-                            data.TTime = data.Time - _primerTime.Value;
+                            dpp.TTime = dpp.Time - _primerTime.Value;
                         }
                     }
                     else
                     {
-                        data.TTime = data.Time;
+                        dpp.TTime = dpp.Time;
                     }
                 }
+                return dpp;
             }catch(InvalidOperationException ex){
                 throw ex;
             }catch(TimeoutException ex){
                 throw ex;
             }
-            return data;
         }
 
         private void butConexion_Click(object sender, EventArgs e)
@@ -201,11 +309,6 @@ namespace Banco
                 try
                 {
                     _init = false;
-                    _serieAAngular.Points.Clear();
-                    _seriePar.Points.Clear();
-                    _serieRpms.Points.Clear();
-                    _serieVAngular.Points.Clear();
-
                     _tokenSource = new CancellationTokenSource();
                     _serialPort = new SerialPort(lbCom.SelectedItem.ToString(), int.Parse(lbBaud.SelectedItem.ToString()));
                     _serialPort.ReadTimeout = 500;
@@ -222,36 +325,32 @@ namespace Banco
                         {
                             var data = ReadData();
 
-                            double rpms = (data.VAngular * 60 * 100 / (2 * Math.PI));
-                            double par = (data.AAngular * _volante.Inercia);
-                            double pot = (par * rpms);
-                            if (rpms > _maxRpms) _maxRpms = (float)rpms;
-                            if (par > _maxPar) { _maxPar = (float)par; _rpmsAMaxPar = (float)rpms; }
-                            if (pot > _maxPotencia) { _maxPotencia = (float)pot;  _rpmsAMaxPot = (float)rpms; }
+                            if (data != null)
+                            {
+                                if (data.Rpm > _maxRpms) _maxRpms = data.Rpm.Value;
+                                if (data.Par > _maxPar) { _maxPar = data.Par.Value; _rpmsAMaxPar = data.Rpm.Value; }
+                                if (data.Potencia > _maxPotencia) { _maxPotencia = data.Potencia.Value; _rpmsAMaxPot = data.Rpm.Value; }
 
-                            Invoke((MethodInvoker)delegate {
-                                gaugeRpm.Value = (float)rpms;
-                                gaugePar.Value = (float)par;
-                                gaugePotencia.Value = (float)pot;
+                                Invoke((MethodInvoker)delegate
+                                {
+                                    gaugeRpm.Value = data.Rpm.Value;
+                                    gaugePar.Value = data.Par.Value;
+                                    gaugePotencia.Value = data.Potencia.Value;
 
-                                radialGaugeNeedle2.Value = _maxRpms;
-                                radialGaugeNeedle4.Value = _maxPar;
-                                radialGaugeSingleLabel6.LabelText = _rpmsAMaxPar.ToString();
-                                radialGaugeNeedle6.Value = _maxPotencia;
-                                radialGaugeSingleLabel10.LabelText = _rpmsAMaxPot.ToString();
+                                    radialGaugeNeedle2.Value = _maxRpms;
+                                    radialGaugeNeedle4.Value = _maxPar;
+                                    radialGaugeSingleLabel6.LabelText = _rpmsAMaxPar.ToString("0");
+                                    radialGaugeNeedle6.Value = _maxPotencia;
+                                    radialGaugeSingleLabel10.LabelText = _rpmsAMaxPot.ToString("0");
 
-                                txtRpm.Text = rpms.ToString();
-                                txtPar.Text = (data.AAngular * _volante.Inercia).ToString();
-
-                                _serieVAngular.Points.Add(new DataPoint(data.Time, data.VAngular));
-                                _serieAAngular.Points.Add(new DataPoint(data.Time, data.AAngular));
-                                _seriePar.Points.Add(new DataPoint(data.Time, par));
-                                _serieRpms.Points.Add(new DataPoint(data.Time, rpms));
-                            });
-
+                                    txtRpm.Text = data.Rpm.ToString();
+                                    txtPar.Text = (data.AAngular * Volante.Inercia).ToString();
+                                });
+                            }
+                            
                             if (Grabando)
                             {
-                                _queue.Enqueue(data);
+                                _ensayoActual.FillData(data);
                             }
                         }
                         Console.WriteLine("Cancelled");
@@ -265,21 +364,6 @@ namespace Banco
             }else{
                 _tokenSource.Cancel();
                 butConexion.Text = "Conectar";
-            }
-        }
-
-        private void VolcarDatos()
-        {
-            using (var f = File.AppendText("ensayos\\" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".csv"))
-            {
-                while (_queue.Count > 0)
-                {
-                    DataPack dato;
-                    if(_queue.TryDequeue(out dato))
-                    {
-                        f.WriteLine(dato.TTime + ";" + dato.VAngular + ";" + dato.AAngular);
-                    }
-                }
             }
         }
 
@@ -327,8 +411,12 @@ namespace Banco
                 {
                     lbEnsayos.SelectedItems.Remove(_ensayos[i]);
                     _ensayos[i].Added = false;
-                    chartAnalisis.Series.Remove(_ensayos[i].SerieVAngular);
-                    chartAnalisis.Series.Remove(_ensayos[i].SerieAAngular);
+
+                    radChartAnalisisTiempo.Series.Remove(radChartAnalisisTiempo.Series.FirstOrDefault(x => x.Name == _ensayos[i].NombreSerieRpms));
+                    radChartAnalisisTiempo.Series.Remove(radChartAnalisisTiempo.Series.FirstOrDefault(x => x.Name == _ensayos[i].NombreSeriePar));
+
+                    radChartAnalisisRpms.Series.Remove(radChartAnalisisRpms.Series.FirstOrDefault(x => x.Name == _ensayos[i].NombreSeriePar));
+                    radChartAnalisisRpms.Series.Remove(radChartAnalisisRpms.Series.FirstOrDefault(x => x.Name == _ensayos[i].NombreSeriePotencia));
                 }
             }
 
@@ -339,27 +427,127 @@ namespace Banco
                 _seleccionEnsayos.Add(fichero);
                 if (!fichero.Added)
                 {
-                    fichero.ResetSeries();
                     fichero.Added = true;
+
                     var dataText = File.ReadAllLines(fichero.Path);
-                    for (var j = 0; j < dataText.Length; j++)
+
+                    fichero.FillData(dataText);
+
+                    if (!radChartAnalisisTiempo.Series.Any(x => x.Name == fichero.NombreSerieRpms))
                     {
-                        var txt = dataText[j].Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
-                        fichero.SerieVAngular.Points.Add(new DataPoint(long.Parse(txt[0]), float.Parse(txt[1])));
-                        fichero.SerieAAngular.Points.Add(new DataPoint(long.Parse(txt[0]), float.Parse(txt[2])));
+                        var serie = new ScatterLineSeries()
+                        {
+                            LegendTitle = fichero.NombreSerieRpms,
+                            Name = fichero.NombreSerieRpms,
+                            DataSource = fichero.Series,
+                            ValueMember = "TTime",
+                            CategoryMember = "Rpm",
+                            PointSize = SizeF.Empty,
+                            HorizontalAxis = ejeHorizontalAnalisisTiempo,
+                            VerticalAxis = ejeVerticalAnalisisTiempo
+                        };
+                        radChartAnalisisTiempo.Series.Add(serie);
                     }
-                    if(!chartAnalisis.Series.Any(x=>x.Name == fichero.SerieVAngular.Name)){ 
-                        chartAnalisis.Series.Add(fichero.SerieVAngular);
+
+                    if (!radChartAnalisisTiempo.Series.Any(x => x.Name == fichero.NombreSeriePar))
+                    {
+                        var serie = new ScatterLineSeries()
+                        {
+                            LegendTitle = fichero.NombreSeriePar,
+                            Name = fichero.NombreSeriePar,
+                            DataSource = fichero.Series,
+                            ValueMember = "TTime",
+                            CategoryMember = "Par",
+                            PointSize = SizeF.Empty,
+                            HorizontalAxis = ejeHorizontalAnalisisTiempo,
+                            VerticalAxis = ejeVerticalAnalisisTiempoPar
+                        };
+                        radChartAnalisisTiempo.Series.Add(serie);
                     }
-                    if (!chartAnalisis.Series.Any(x => x.Name == fichero.SerieAAngular.Name)){
-                        chartAnalisis.Series.Add(fichero.SerieAAngular);
+
+                    if (!radChartAnalisisRpms.Series.Any(x => x.Name == fichero.NombreSeriePotencia))
+                    {
+                        radChartAnalisisRpms.Series.Add(new ScatterLineSeries()
+                        {
+                            LegendTitle = fichero.NombreSeriePotencia,
+                            Name = fichero.NombreSeriePotencia,
+                            DataSource = fichero.Series,
+                            ValueMember = "Rpm",
+                            CategoryMember = "Potencia",
+                            PointSize = SizeF.Empty,
+                            HorizontalAxis = ejeHorizontalAnalisisRpms,
+                            VerticalAxis = ejeVerticalAnalisisRpms
+                        });
+                    }
+
+                    if (!radChartAnalisisRpms.Series.Any(x => x.Name == fichero.NombreSeriePar))
+                    {
+                        radChartAnalisisRpms.Series.Add(new ScatterLineSeries()
+                        {
+                            LegendTitle = fichero.NombreSeriePar,
+                            Name = fichero.NombreSeriePar,
+                            DataSource = fichero.Series,
+                            ValueMember = "Rpm",
+                            CategoryMember = "Par",
+                            PointSize = SizeF.Empty,
+                            HorizontalAxis = ejeHorizontalAnalisisRpms,
+                            VerticalAxis = ejeVerticalAnalisisRpmsPar
+                        });
                     }
                 }
             }
+            CopiarGrid(radChartAnalisisTiempo, radChartAnalisisRpms);
+        }
+
+        private void CopiarGrid(RadChartView src, RadChartView dst)
+        {
+            /// Copiar estilos de primera a segunda gráfica de análisis
+            var gridSrc = src.GetArea<CartesianArea>().GetGrid<CartesianGrid>();
+            var gridDst = dst.GetArea<CartesianArea>().GetGrid<CartesianGrid>();
+            gridDst.AlternatingBackColor = gridSrc.AlternatingBackColor;
+            gridDst.AlternatingBackColor2 = gridSrc.AlternatingBackColor2;
+            gridDst.AlternatingHorizontalColor = gridSrc.AlternatingHorizontalColor;
+            gridDst.AlternatingVerticalColor = gridSrc.AlternatingVerticalColor;
+            gridDst.BackColor = gridSrc.BackColor;
+            gridDst.BackColor2 = gridSrc.BackColor2;
+            gridDst.BackColor3 = gridSrc.BackColor3;
+            gridDst.BackColor4 = gridSrc.BackColor4;
+            gridDst.BorderDashStyle = gridSrc.BorderDashStyle;
+            gridDst.BorderDashPattern = gridSrc.BorderDashPattern;
+            gridDst.BorderCornerRadius = gridSrc.BorderCornerRadius;
+            gridDst.BorderDrawMode = gridSrc.BorderDrawMode;
+            gridDst.BorderGradientAngle = gridSrc.BorderGradientAngle;
+            gridDst.BorderGradientStyle = gridSrc.BorderGradientStyle;
+            gridDst.BorderInnerColor = gridSrc.BorderInnerColor;
+            gridDst.BorderInnerColor2 = gridSrc.BorderInnerColor2;
+            gridDst.BorderInnerColor3 = gridSrc.BorderInnerColor3;
+            gridDst.BorderInnerColor4 = gridSrc.BorderInnerColor4;
+            gridDst.BorderLeftColor = gridSrc.BorderLeftColor;
+            gridDst.BorderLeftShadowColor = gridSrc.BorderLeftShadowColor;
+            gridDst.BorderLeftWidth = gridSrc.BorderLeftWidth;
+            gridDst.BorderRightColor = gridSrc.BorderRightColor;
+            gridDst.BorderRightShadowColor = gridSrc.BorderRightShadowColor;
+            gridDst.BorderRightWidth = gridSrc.BorderRightWidth;
+            gridDst.BorderTopColor = gridSrc.BorderTopColor;
+            gridDst.BorderTopShadowColor = gridSrc.BorderTopShadowColor;
+            gridDst.BorderBottomColor = gridSrc.BorderBottomColor;
+            gridDst.BorderBottomShadowColor = gridSrc.BorderBottomShadowColor;
+            gridDst.BorderBoxStyle = gridSrc.BorderBoxStyle;
+            gridDst.BorderColor = gridSrc.BorderColor;
+            gridDst.BorderColor2 = gridSrc.BorderColor2;
+            gridDst.BorderColor3 = gridSrc.BorderColor3;
+            gridDst.BorderColor4 = gridSrc.BorderColor4;
+            gridDst.BorderTopWidth = gridSrc.BorderTopWidth;
+            gridDst.BorderWidth = gridSrc.BorderWidth;
+            gridDst.ForeColor = gridSrc.ForeColor;
+            gridDst.DrawVerticalFills = false;
+            gridDst.Style = gridSrc.Style;
+            gridDst.NumberOfColors = gridSrc.NumberOfColors;
         }
 
         private void txtOffset_TextChanged(object sender, EventArgs e)
         {
+            /*
             Console.WriteLine("Changed");
             var fichero = cbEnsayos.SelectedItem as FicheroEnsayo;
             if (fichero != null)
@@ -367,8 +555,7 @@ namespace Banco
                 long res = 0;
                 long.TryParse(txtOffset.Text, out res);
                 fichero.Offset = res;
-            }
-            chartAnalisis.Update();
+            }*/
         }
 
         private void txtRpmInicio_TextChanged(object sender, EventArgs e)
@@ -393,7 +580,7 @@ namespace Banco
                 {
                     butGrabar.Text = "Inicio Manual";
                     _primerTime = null;
-                    VolcarDatos();
+                    _ensayoActual.VolcarDatos();
                 });
             }
             _init = activo;
@@ -404,22 +591,6 @@ namespace Banco
             Grabando = _grabando_manual;
         }
 
-        private void chartAnalisis_MouseDown(object sender, MouseEventArgs e)
-        {
-            HitTestResult result = chartAnalisis.HitTest(e.X, e.Y);
-            if (result != null && result.Object != null)
-            {
-                // When user hits the LegendItem
-                if (result.Object is LegendItem)
-                {
-                    // Legend item result
-                    LegendItem legendItem = (LegendItem)result.Object;
-                    var serie = chartAnalisis.Series.FindByName(legendItem.SeriesName);
-                    serie.Enabled = !serie.Enabled;
-                }
-            }
-        }
-
         private void iniciarEnsayo()
         {
             _maxRpms = 0;
@@ -428,6 +599,8 @@ namespace Banco
             _rpmsAMaxPar = 0;
             _maxPotencia = 0;
             _rpmsAMaxPot = 0;
+
+            _ensayoActual.Series.Clear();
 
             _init = true;
         }
@@ -443,6 +616,61 @@ namespace Banco
         private void gaugeRpm_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void nudMarcha_ValueChanged(object sender, EventArgs e)
+        {
+            Cambios.Seleccionada = (int)nudMarcha.Value;
+        }
+
+        private void txtRelacion1_TextChanged(object sender, EventArgs e)
+        {
+            Cambios.Relacion1 = float.Parse(txtRelacion1.Text);
+        }
+        private void txtRelacion2_TextChanged(object sender, EventArgs e)
+        {
+            Cambios.Relacion2 = float.Parse(txtRelacion2.Text);
+        }
+        private void txtRelacion3_TextChanged(object sender, EventArgs e)
+        {
+            Cambios.Relacion3 = float.Parse(txtRelacion3.Text);
+        }
+        private void txtRelacion4_TextChanged(object sender, EventArgs e)
+        {
+            Cambios.Relacion4 = float.Parse(txtRelacion4.Text);
+        }
+        private void txtRelacion5_TextChanged(object sender, EventArgs e)
+        {
+            Cambios.Relacion5 = float.Parse(txtRelacion5.Text);
+        }
+        private void txtRelacion6_TextChanged(object sender, EventArgs e)
+        {
+            Cambios.Relacion6 = float.Parse(txtRelacion6.Text);
+        }
+        private void txtReduccionPrimaria_TextChanged(object sender, EventArgs e)
+        {
+            Cambios.ReduccionPrimaria = float.Parse(txtReduccionPrimaria.Text);
+        }
+
+        private void butAbrirEnsayos_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"ensayos");
+        }
+
+        private void nudOffset_ValueChanged(object sender, EventArgs e)
+        {
+            _seleccionEnsayos[cbEnsayos.SelectedIndex].Offset = (long)nudOffset.Value;
+            var series = radChartAnalisisTiempo.Series.ToArray();
+            radChartAnalisisTiempo.Series.Clear();
+            radChartAnalisisTiempo.Series.AddRange(series);
+        }
+
+        private void cbEnsayos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbEnsayos.SelectedIndex >= 0)
+            {
+                nudOffset.Value = _seleccionEnsayos[cbEnsayos.SelectedIndex].Offset;
+            }
         }
     }
 }

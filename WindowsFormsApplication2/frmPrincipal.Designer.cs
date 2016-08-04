@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            Telerik.WinControls.UI.CartesianArea cartesianArea5 = new Telerik.WinControls.UI.CartesianArea();
+            Telerik.WinControls.UI.CartesianArea cartesianArea1 = new Telerik.WinControls.UI.CartesianArea();
+            Telerik.WinControls.UI.CartesianArea cartesianArea2 = new Telerik.WinControls.UI.CartesianArea();
+            Telerik.WinControls.UI.CartesianArea cartesianArea3 = new Telerik.WinControls.UI.CartesianArea();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelSpring = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
@@ -52,52 +51,26 @@
             this.lblPar = new System.Windows.Forms.Label();
             this.txtRpm = new System.Windows.Forms.TextBox();
             this.lblRPM = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chartPrincipal = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabEns = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartAnalisis = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.gbEnsayos = new System.Windows.Forms.GroupBox();
-            this.txtOffset = new System.Windows.Forms.TextBox();
-            this.cbEnsayos = new System.Windows.Forms.ComboBox();
-            this.butRefrescar = new System.Windows.Forms.Button();
-            this.lbEnsayos = new System.Windows.Forms.ListBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtRpmInicio = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtInerciaVolante = new System.Windows.Forms.TextBox();
-            this.txtPesoVolante = new System.Windows.Forms.TextBox();
-            this.txtRadioVolante = new System.Windows.Forms.TextBox();
-            this.txtReduccionPrimaria = new System.Windows.Forms.TextBox();
-            this.txtRelacion6 = new System.Windows.Forms.TextBox();
-            this.txtRelacion5 = new System.Windows.Forms.TextBox();
-            this.txtRelacion4 = new System.Windows.Forms.TextBox();
-            this.txtRelacion3 = new System.Windows.Forms.TextBox();
-            this.txtRelacion2 = new System.Windows.Forms.TextBox();
-            this.txtRelacion1 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.gaugeAfr = new Telerik.WinControls.UI.Gauges.RadRadialGauge();
+            this.radialGaugeArc7 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
+            this.radialGaugeTicks9 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
+            this.radialGaugeTicks10 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
+            this.radialGaugeLabels5 = new Telerik.WinControls.UI.Gauges.RadialGaugeLabels();
+            this.radialGaugeNeedle7 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
+            this.radialGaugeSingleLabel11 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.radialGaugeSingleLabel12 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.gaugePotencia = new Telerik.WinControls.UI.Gauges.RadRadialGauge();
+            this.radialGaugeArc5 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
+            this.radialGaugeArc6 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
+            this.radialGaugeTicks7 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
+            this.radialGaugeTicks8 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
+            this.radialGaugeLabels4 = new Telerik.WinControls.UI.Gauges.RadialGaugeLabels();
+            this.radialGaugeNeedle5 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
+            this.radialGaugeNeedle6 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
+            this.radialGaugeSingleLabel7 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.radialGaugeSingleLabel8 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.radialGaugeSingleLabel9 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.radialGaugeSingleLabel10 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.gaugeRpm = new Telerik.WinControls.UI.Gauges.RadRadialGauge();
             this.radialGaugeArc1 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
             this.radialGaugeArc2 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
@@ -123,26 +96,56 @@
             this.radialGaugeSingleLabel4 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.radialGaugeSingleLabel5 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
             this.radialGaugeSingleLabel6 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.gaugePotencia = new Telerik.WinControls.UI.Gauges.RadRadialGauge();
-            this.radialGaugeArc5 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
-            this.radialGaugeArc6 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
-            this.radialGaugeTicks7 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
-            this.radialGaugeTicks8 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
-            this.radialGaugeLabels4 = new Telerik.WinControls.UI.Gauges.RadialGaugeLabels();
-            this.radialGaugeNeedle5 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
-            this.radialGaugeNeedle6 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
-            this.radialGaugeSingleLabel7 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel8 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel9 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel10 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.gaugeAfr = new Telerik.WinControls.UI.Gauges.RadRadialGauge();
-            this.radialGaugeArc7 = new Telerik.WinControls.UI.Gauges.RadialGaugeArc();
-            this.radialGaugeTicks9 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
-            this.radialGaugeTicks10 = new Telerik.WinControls.UI.Gauges.RadialGaugeTicks();
-            this.radialGaugeLabels5 = new Telerik.WinControls.UI.Gauges.RadialGaugeLabels();
-            this.radialGaugeNeedle7 = new Telerik.WinControls.UI.Gauges.RadialGaugeNeedle();
-            this.radialGaugeSingleLabel11 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
-            this.radialGaugeSingleLabel12 = new Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.splitContainerTiempoReal = new System.Windows.Forms.SplitContainer();
+            this.radChartTiempo = new Telerik.WinControls.UI.RadChartView();
+            this.radChartRpms = new Telerik.WinControls.UI.RadChartView();
+            this.tabEns = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.splitContainerAnalisis = new System.Windows.Forms.SplitContainer();
+            this.radChartAnalisisTiempo = new Telerik.WinControls.UI.RadChartView();
+            this.radChartAnalisisRpms = new Telerik.WinControls.UI.RadChartView();
+            this.gbEnsayos = new System.Windows.Forms.GroupBox();
+            this.butAbrirEnsayos = new System.Windows.Forms.Button();
+            this.cbEnsayos = new System.Windows.Forms.ComboBox();
+            this.butRefrescar = new System.Windows.Forms.Button();
+            this.lbEnsayos = new System.Windows.Forms.ListBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.nudMarcha = new System.Windows.Forms.NumericUpDown();
+            this.txtRpmInicio = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtInerciaVolante = new System.Windows.Forms.TextBox();
+            this.txtPesoVolante = new System.Windows.Forms.TextBox();
+            this.txtRadioVolante = new System.Windows.Forms.TextBox();
+            this.txtReduccionPrimaria = new System.Windows.Forms.TextBox();
+            this.txtRelacion6 = new System.Windows.Forms.TextBox();
+            this.txtRelacion5 = new System.Windows.Forms.TextBox();
+            this.txtRelacion4 = new System.Windows.Forms.TextBox();
+            this.txtRelacion3 = new System.Windows.Forms.TextBox();
+            this.txtRelacion2 = new System.Windows.Forms.TextBox();
+            this.txtRelacion1 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.nudOffset = new System.Windows.Forms.NumericUpDown();
+            this.lblOffset = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.tabBanco.SuspendLayout();
             this.tabCaptura.SuspendLayout();
@@ -152,19 +155,30 @@
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeAfr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugePotencia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeRpm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugePar)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartPrincipal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTiempoReal)).BeginInit();
+            this.splitContainerTiempoReal.Panel1.SuspendLayout();
+            this.splitContainerTiempoReal.Panel2.SuspendLayout();
+            this.splitContainerTiempoReal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radChartTiempo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radChartRpms)).BeginInit();
             this.tabEns.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartAnalisis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerAnalisis)).BeginInit();
+            this.splitContainerAnalisis.Panel1.SuspendLayout();
+            this.splitContainerAnalisis.Panel2.SuspendLayout();
+            this.splitContainerAnalisis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radChartAnalisisTiempo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radChartAnalisisRpms)).BeginInit();
             this.gbEnsayos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugeRpm)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugePar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugePotencia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugeAfr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMarcha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -232,6 +246,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
             this.splitContainer1.Panel2.Controls.Add(this.gaugeAfr);
             this.splitContainer1.Panel2.Controls.Add(this.gaugePotencia);
             this.splitContainer1.Panel2.Controls.Add(this.gaugeRpm);
@@ -375,489 +390,273 @@
             this.lblRPM.TabIndex = 0;
             this.lblRPM.Text = "RPMs";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.chartPrincipal);
-            this.groupBox3.Location = new System.Drawing.Point(7, 8);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1241, 388);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Gráfico";
-            // 
-            // chartPrincipal
-            // 
-            chartArea7.Name = "ChartArea1";
-            this.chartPrincipal.ChartAreas.Add(chartArea7);
-            this.chartPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend7.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend7.Name = "Legend1";
-            this.chartPrincipal.Legends.Add(legend7);
-            this.chartPrincipal.Location = new System.Drawing.Point(3, 22);
-            this.chartPrincipal.Name = "chartPrincipal";
-            this.chartPrincipal.Size = new System.Drawing.Size(1235, 363);
-            this.chartPrincipal.TabIndex = 0;
-            this.chartPrincipal.Text = "chartPrincipal";
-            // 
-            // tabEns
-            // 
-            this.tabEns.Controls.Add(this.groupBox2);
-            this.tabEns.Controls.Add(this.gbEnsayos);
-            this.tabEns.Location = new System.Drawing.Point(4, 29);
-            this.tabEns.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabEns.Name = "tabEns";
-            this.tabEns.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabEns.Size = new System.Drawing.Size(1256, 686);
-            this.tabEns.TabIndex = 1;
-            this.tabEns.Text = "Ensayos";
-            this.tabEns.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.chart1);
-            this.groupBox2.Controls.Add(this.chartAnalisis);
-            this.groupBox2.Location = new System.Drawing.Point(216, 8);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1032, 670);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Gráfico";
-            // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea8.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea8);
-            legend8.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend8.Name = "Legend1";
-            this.chart1.Legends.Add(legend8);
-            this.chart1.Location = new System.Drawing.Point(3, 603);
-            this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(1026, 61);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
-            // 
-            // chartAnalisis
-            // 
-            this.chartAnalisis.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea9.Name = "ChartArea1";
-            this.chartAnalisis.ChartAreas.Add(chartArea9);
-            legend9.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend9.Name = "Legend1";
-            this.chartAnalisis.Legends.Add(legend9);
-            this.chartAnalisis.Location = new System.Drawing.Point(3, 22);
-            this.chartAnalisis.Name = "chartAnalisis";
-            this.chartAnalisis.Size = new System.Drawing.Size(1026, 575);
-            this.chartAnalisis.TabIndex = 0;
-            this.chartAnalisis.Text = "chartAnalisis";
-            this.chartAnalisis.MouseDown += new System.Windows.Forms.MouseEventHandler(this.chartAnalisis_MouseDown);
-            // 
-            // gbEnsayos
-            // 
-            this.gbEnsayos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.gbEnsayos.Controls.Add(this.txtOffset);
-            this.gbEnsayos.Controls.Add(this.cbEnsayos);
-            this.gbEnsayos.Controls.Add(this.butRefrescar);
-            this.gbEnsayos.Controls.Add(this.lbEnsayos);
-            this.gbEnsayos.Controls.Add(this.label20);
-            this.gbEnsayos.Location = new System.Drawing.Point(7, 8);
-            this.gbEnsayos.Name = "gbEnsayos";
-            this.gbEnsayos.Size = new System.Drawing.Size(203, 670);
-            this.gbEnsayos.TabIndex = 1;
-            this.gbEnsayos.TabStop = false;
-            this.gbEnsayos.Text = "Ensayos realizados";
-            // 
-            // txtOffset
-            // 
-            this.txtOffset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtOffset.Location = new System.Drawing.Point(97, 603);
-            this.txtOffset.Name = "txtOffset";
-            this.txtOffset.Size = new System.Drawing.Size(100, 26);
-            this.txtOffset.TabIndex = 5;
-            this.txtOffset.TextChanged += new System.EventHandler(this.txtOffset_TextChanged);
-            // 
-            // cbEnsayos
-            // 
-            this.cbEnsayos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEnsayos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEnsayos.FormattingEnabled = true;
-            this.cbEnsayos.Location = new System.Drawing.Point(6, 569);
-            this.cbEnsayos.Name = "cbEnsayos";
-            this.cbEnsayos.Size = new System.Drawing.Size(191, 28);
-            this.cbEnsayos.TabIndex = 4;
-            // 
-            // butRefrescar
-            // 
-            this.butRefrescar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.butRefrescar.Location = new System.Drawing.Point(6, 635);
-            this.butRefrescar.Name = "butRefrescar";
-            this.butRefrescar.Size = new System.Drawing.Size(191, 29);
-            this.butRefrescar.TabIndex = 3;
-            this.butRefrescar.Text = "Refrescar";
-            this.butRefrescar.UseVisualStyleBackColor = true;
-            this.butRefrescar.Click += new System.EventHandler(this.butRefrescar_Click);
-            // 
-            // lbEnsayos
-            // 
-            this.lbEnsayos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbEnsayos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEnsayos.FormattingEnabled = true;
-            this.lbEnsayos.ItemHeight = 20;
-            this.lbEnsayos.Location = new System.Drawing.Point(6, 25);
-            this.lbEnsayos.Name = "lbEnsayos";
-            this.lbEnsayos.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lbEnsayos.Size = new System.Drawing.Size(191, 524);
-            this.lbEnsayos.TabIndex = 2;
-            this.lbEnsayos.SelectedIndexChanged += new System.EventHandler(this.lbEnsayos_SelectedIndexChanged);
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 606);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(92, 20);
-            this.label20.TabIndex = 6;
-            this.label20.Text = "Offset (ms):";
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.groupBox5);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1256, 686);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "Configuración";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.txtRpmInicio);
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.textBox16);
-            this.groupBox5.Controls.Add(this.textBox15);
-            this.groupBox5.Controls.Add(this.textBox14);
-            this.groupBox5.Controls.Add(this.textBox13);
-            this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Controls.Add(this.textBox12);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.txtInerciaVolante);
-            this.groupBox5.Controls.Add(this.txtPesoVolante);
-            this.groupBox5.Controls.Add(this.txtRadioVolante);
-            this.groupBox5.Controls.Add(this.txtReduccionPrimaria);
-            this.groupBox5.Controls.Add(this.txtRelacion6);
-            this.groupBox5.Controls.Add(this.txtRelacion5);
-            this.groupBox5.Controls.Add(this.txtRelacion4);
-            this.groupBox5.Controls.Add(this.txtRelacion3);
-            this.groupBox5.Controls.Add(this.txtRelacion2);
-            this.groupBox5.Controls.Add(this.txtRelacion1);
-            this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.label12);
-            this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Controls.Add(this.label10);
-            this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.label8);
-            this.groupBox5.Controls.Add(this.label7);
-            this.groupBox5.Controls.Add(this.label6);
-            this.groupBox5.Controls.Add(this.label3);
-            this.groupBox5.Location = new System.Drawing.Point(8, 6);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(627, 337);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Configuración del banco";
-            // 
-            // txtRpmInicio
-            // 
-            this.txtRpmInicio.Location = new System.Drawing.Point(157, 254);
-            this.txtRpmInicio.Name = "txtRpmInicio";
-            this.txtRpmInicio.Size = new System.Drawing.Size(92, 26);
-            this.txtRpmInicio.TabIndex = 31;
-            this.txtRpmInicio.Text = "0,01";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 257);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 20);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "RPMs inicio:";
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(462, 279);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(112, 26);
-            this.textBox16.TabIndex = 29;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(462, 247);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(112, 26);
-            this.textBox15.TabIndex = 28;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(462, 215);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(112, 26);
-            this.textBox14.TabIndex = 27;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(462, 183);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(112, 26);
-            this.textBox13.TabIndex = 26;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(310, 282);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(139, 20);
-            this.label18.TabIndex = 25;
-            this.label18.Text = "X mínimo gráfico 2";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(310, 250);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(143, 20);
-            this.label19.TabIndex = 24;
-            this.label19.Text = "X máximo gráfico 2";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(310, 218);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(139, 20);
-            this.label17.TabIndex = 23;
-            this.label17.Text = "X mínimo gráfico 1";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(310, 186);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(143, 20);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "X máximo gráfico 1";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(462, 151);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(112, 26);
-            this.textBox12.TabIndex = 21;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(310, 154);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(146, 20);
-            this.label15.TabIndex = 20;
-            this.label15.Text = "RPMs inicio ensayo";
-            // 
-            // txtInerciaVolante
-            // 
-            this.txtInerciaVolante.Location = new System.Drawing.Point(462, 94);
-            this.txtInerciaVolante.Name = "txtInerciaVolante";
-            this.txtInerciaVolante.ReadOnly = true;
-            this.txtInerciaVolante.Size = new System.Drawing.Size(112, 26);
-            this.txtInerciaVolante.TabIndex = 19;
-            // 
-            // txtPesoVolante
-            // 
-            this.txtPesoVolante.Location = new System.Drawing.Point(462, 62);
-            this.txtPesoVolante.Name = "txtPesoVolante";
-            this.txtPesoVolante.Size = new System.Drawing.Size(112, 26);
-            this.txtPesoVolante.TabIndex = 18;
-            this.txtPesoVolante.Text = "72,96";
-            // 
-            // txtRadioVolante
-            // 
-            this.txtRadioVolante.Location = new System.Drawing.Point(462, 30);
-            this.txtRadioVolante.Name = "txtRadioVolante";
-            this.txtRadioVolante.Size = new System.Drawing.Size(112, 26);
-            this.txtRadioVolante.TabIndex = 17;
-            this.txtRadioVolante.Text = "232";
-            // 
-            // txtReduccionPrimaria
-            // 
-            this.txtReduccionPrimaria.Location = new System.Drawing.Point(157, 222);
-            this.txtReduccionPrimaria.Name = "txtReduccionPrimaria";
-            this.txtReduccionPrimaria.Size = new System.Drawing.Size(112, 26);
-            this.txtReduccionPrimaria.TabIndex = 16;
-            this.txtReduccionPrimaria.Text = "2,208";
-            // 
-            // txtRelacion6
-            // 
-            this.txtRelacion6.Location = new System.Drawing.Point(111, 190);
-            this.txtRelacion6.Name = "txtRelacion6";
-            this.txtRelacion6.Size = new System.Drawing.Size(112, 26);
-            this.txtRelacion6.TabIndex = 15;
-            this.txtRelacion6.Text = "0,962";
-            // 
-            // txtRelacion5
-            // 
-            this.txtRelacion5.Location = new System.Drawing.Point(111, 158);
-            this.txtRelacion5.Name = "txtRelacion5";
-            this.txtRelacion5.Size = new System.Drawing.Size(112, 26);
-            this.txtRelacion5.TabIndex = 14;
-            this.txtRelacion5.Text = "1,115";
-            // 
-            // txtRelacion4
-            // 
-            this.txtRelacion4.Location = new System.Drawing.Point(111, 126);
-            this.txtRelacion4.Name = "txtRelacion4";
-            this.txtRelacion4.Size = new System.Drawing.Size(112, 26);
-            this.txtRelacion4.TabIndex = 13;
-            this.txtRelacion4.Text = "1,304";
-            // 
-            // txtRelacion3
-            // 
-            this.txtRelacion3.Location = new System.Drawing.Point(111, 94);
-            this.txtRelacion3.Name = "txtRelacion3";
-            this.txtRelacion3.Size = new System.Drawing.Size(112, 26);
-            this.txtRelacion3.TabIndex = 12;
-            this.txtRelacion3.Text = "1,571";
-            // 
-            // txtRelacion2
-            // 
-            this.txtRelacion2.Location = new System.Drawing.Point(111, 62);
-            this.txtRelacion2.Name = "txtRelacion2";
-            this.txtRelacion2.Size = new System.Drawing.Size(112, 26);
-            this.txtRelacion2.TabIndex = 11;
-            this.txtRelacion2.Text = "2,117";
-            // 
-            // txtRelacion1
-            // 
-            this.txtRelacion1.Location = new System.Drawing.Point(111, 30);
-            this.txtRelacion1.Name = "txtRelacion1";
-            this.txtRelacion1.Size = new System.Drawing.Size(112, 26);
-            this.txtRelacion1.TabIndex = 10;
-            this.txtRelacion1.Text = "3,333";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(336, 94);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(116, 20);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Inercia Volante";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(336, 63);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 20);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Peso Volante";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(336, 33);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(110, 20);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Radio Volante";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 222);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(145, 20);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "Reducción primaria";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 63);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 20);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Relación 2";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 20);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Relación 3";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 126);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(84, 20);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Relación 4";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 157);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(84, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Relación 5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 190);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Relación 6";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Relación 1";
+            // gaugeAfr
+            // 
+            this.gaugeAfr.BackColor = System.Drawing.Color.Transparent;
+            this.gaugeAfr.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radialGaugeArc7,
+            this.radialGaugeTicks9,
+            this.radialGaugeTicks10,
+            this.radialGaugeLabels5,
+            this.radialGaugeNeedle7,
+            this.radialGaugeSingleLabel11,
+            this.radialGaugeSingleLabel12});
+            this.gaugeAfr.Location = new System.Drawing.Point(735, 3);
+            this.gaugeAfr.Name = "gaugeAfr";
+            this.gaugeAfr.RangeEnd = 20D;
+            this.gaugeAfr.RangeStart = 5D;
+            this.gaugeAfr.Size = new System.Drawing.Size(270, 270);
+            this.gaugeAfr.TabIndex = 2;
+            this.gaugeAfr.Text = "RPMs";
+            this.gaugeAfr.Value = 0F;
+            // 
+            // radialGaugeArc7
+            // 
+            this.radialGaugeArc7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeArc7.BackColor2 = System.Drawing.Color.Black;
+            this.radialGaugeArc7.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeArc7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeArc7.Name = "radialGaugeArc7";
+            this.radialGaugeArc7.RangeEnd = 4000D;
+            this.radialGaugeArc7.Text = "radialGaugeArc1";
+            this.radialGaugeArc7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeArc7.Width = 1D;
+            // 
+            // radialGaugeTicks9
+            // 
+            this.radialGaugeTicks9.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks9.DrawText = false;
+            this.radialGaugeTicks9.Name = "radialGaugeTicks9";
+            this.radialGaugeTicks9.Text = "radialGaugeTicks1";
+            this.radialGaugeTicks9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks9.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeTicks9.TickEndIndexVisibleRange = 18F;
+            this.radialGaugeTicks9.TicksCount = 18;
+            this.radialGaugeTicks9.TicksRadiusPercentage = 84F;
+            this.radialGaugeTicks9.TickThickness = 1F;
+            // 
+            // radialGaugeTicks10
+            // 
+            this.radialGaugeTicks10.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks10.DrawText = false;
+            this.radialGaugeTicks10.Name = "radialGaugeTicks10";
+            this.radialGaugeTicks10.Text = "radialGaugeTicks2";
+            this.radialGaugeTicks10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks10.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeTicks10.TickEndIndexVisibleRange = 54F;
+            this.radialGaugeTicks10.TicksCount = 54;
+            this.radialGaugeTicks10.TicksLenghtPercentage = 3F;
+            this.radialGaugeTicks10.TickThickness = 1F;
+            // 
+            // radialGaugeLabels5
+            // 
+            this.radialGaugeLabels5.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeLabels5.DrawText = false;
+            this.radialGaugeLabels5.LabelEndVisibleRange = 20F;
+            this.radialGaugeLabels5.LabelFontSize = 4F;
+            this.radialGaugeLabels5.LabelRadiusPercentage = 75F;
+            this.radialGaugeLabels5.LabelsCount = 15;
+            this.radialGaugeLabels5.Name = "radialGaugeLabels5";
+            this.radialGaugeLabels5.Text = "radialGaugeLabels1";
+            this.radialGaugeLabels5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // radialGaugeNeedle7
+            // 
+            this.radialGaugeNeedle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
+            this.radialGaugeNeedle7.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
+            this.radialGaugeNeedle7.BindValue = true;
+            this.radialGaugeNeedle7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeNeedle7.InnerPointRadiusPercentage = 0D;
+            this.radialGaugeNeedle7.LenghtPercentage = 78D;
+            this.radialGaugeNeedle7.Name = "radialGaugeNeedle7";
+            this.radialGaugeNeedle7.PointRadiusPercentage = 0D;
+            this.radialGaugeNeedle7.Text = "radialGaugeNeedle1";
+            this.radialGaugeNeedle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeNeedle7.Thickness = 2D;
+            this.radialGaugeNeedle7.Value = 0F;
+            // 
+            // radialGaugeSingleLabel11
+            // 
+            this.radialGaugeSingleLabel11.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radialGaugeSingleLabel11.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabel11.LabelText = "AFR";
+            this.radialGaugeSingleLabel11.LocationPercentage = new System.Drawing.SizeF(0F, 0.3F);
+            this.radialGaugeSingleLabel11.Name = "radialGaugeSingleLabel11";
+            this.radialGaugeSingleLabel11.Text = "radialGaugeSingleLabel1";
+            this.radialGaugeSingleLabel11.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // radialGaugeSingleLabel12
+            // 
+            this.radialGaugeSingleLabel12.BindValue = true;
+            this.radialGaugeSingleLabel12.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabel12.LabelText = "0";
+            this.radialGaugeSingleLabel12.LocationPercentage = new System.Drawing.SizeF(0F, 0.5F);
+            this.radialGaugeSingleLabel12.Name = "radialGaugeSingleLabel12";
+            this.radialGaugeSingleLabel12.Text = "radialGaugeSingleLabel2";
+            this.radialGaugeSingleLabel12.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // gaugePotencia
+            // 
+            this.gaugePotencia.BackColor = System.Drawing.Color.Transparent;
+            this.gaugePotencia.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radialGaugeArc5,
+            this.radialGaugeArc6,
+            this.radialGaugeTicks7,
+            this.radialGaugeTicks8,
+            this.radialGaugeLabels4,
+            this.radialGaugeNeedle5,
+            this.radialGaugeNeedle6,
+            this.radialGaugeSingleLabel7,
+            this.radialGaugeSingleLabel8,
+            this.radialGaugeSingleLabel9,
+            this.radialGaugeSingleLabel10});
+            this.gaugePotencia.Location = new System.Drawing.Point(483, 3);
+            this.gaugePotencia.Name = "gaugePotencia";
+            this.gaugePotencia.RangeEnd = 40D;
+            this.gaugePotencia.Size = new System.Drawing.Size(270, 270);
+            this.gaugePotencia.TabIndex = 3;
+            this.gaugePotencia.Text = "RPMs";
+            this.gaugePotencia.Value = 0F;
+            // 
+            // radialGaugeArc5
+            // 
+            this.radialGaugeArc5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeArc5.BackColor2 = System.Drawing.Color.Black;
+            this.radialGaugeArc5.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeArc5.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeArc5.Name = "radialGaugeArc5";
+            this.radialGaugeArc5.RangeEnd = 40D;
+            this.radialGaugeArc5.Text = "radialGaugeArc1";
+            this.radialGaugeArc5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeArc5.Width = 1D;
+            // 
+            // radialGaugeArc6
+            // 
+            this.radialGaugeArc6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.radialGaugeArc6.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.radialGaugeArc6.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            this.radialGaugeArc6.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeArc6.Name = "radialGaugeArc6";
+            this.radialGaugeArc6.RangeEnd = 6000D;
+            this.radialGaugeArc6.RangeStart = 4000D;
+            this.radialGaugeArc6.Text = "radialGaugeArc2";
+            this.radialGaugeArc6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeArc6.Width = 1D;
+            // 
+            // radialGaugeTicks7
+            // 
+            this.radialGaugeTicks7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks7.DrawText = false;
+            this.radialGaugeTicks7.Name = "radialGaugeTicks7";
+            this.radialGaugeTicks7.Text = "radialGaugeTicks1";
+            this.radialGaugeTicks7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks7.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeTicks7.TickEndIndexVisibleRange = 18F;
+            this.radialGaugeTicks7.TicksCount = 18;
+            this.radialGaugeTicks7.TicksRadiusPercentage = 84F;
+            this.radialGaugeTicks7.TickThickness = 1F;
+            // 
+            // radialGaugeTicks8
+            // 
+            this.radialGaugeTicks8.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks8.DrawText = false;
+            this.radialGaugeTicks8.Name = "radialGaugeTicks8";
+            this.radialGaugeTicks8.Text = "radialGaugeTicks2";
+            this.radialGaugeTicks8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeTicks8.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.radialGaugeTicks8.TickEndIndexVisibleRange = 54F;
+            this.radialGaugeTicks8.TicksCount = 54;
+            this.radialGaugeTicks8.TicksLenghtPercentage = 3F;
+            this.radialGaugeTicks8.TickThickness = 1F;
+            // 
+            // radialGaugeLabels4
+            // 
+            this.radialGaugeLabels4.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeLabels4.DrawText = false;
+            this.radialGaugeLabels4.LabelEndVisibleRange = 40F;
+            this.radialGaugeLabels4.LabelFontSize = 4F;
+            this.radialGaugeLabels4.LabelRadiusPercentage = 75F;
+            this.radialGaugeLabels4.LabelsCount = 20;
+            this.radialGaugeLabels4.Name = "radialGaugeLabels4";
+            this.radialGaugeLabels4.Text = "radialGaugeLabels1";
+            this.radialGaugeLabels4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // radialGaugeNeedle5
+            // 
+            this.radialGaugeNeedle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
+            this.radialGaugeNeedle5.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
+            this.radialGaugeNeedle5.BindValue = true;
+            this.radialGaugeNeedle5.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeNeedle5.InnerPointRadiusPercentage = 0D;
+            this.radialGaugeNeedle5.LenghtPercentage = 78D;
+            this.radialGaugeNeedle5.Name = "radialGaugeNeedle5";
+            this.radialGaugeNeedle5.PointRadiusPercentage = 0D;
+            this.radialGaugeNeedle5.Text = "radialGaugeNeedle1";
+            this.radialGaugeNeedle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeNeedle5.Thickness = 2D;
+            this.radialGaugeNeedle5.Value = 0F;
+            // 
+            // radialGaugeNeedle6
+            // 
+            this.radialGaugeNeedle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.radialGaugeNeedle6.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.radialGaugeNeedle6.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeNeedle6.InnerPointRadiusPercentage = 0D;
+            this.radialGaugeNeedle6.LenghtPercentage = 78D;
+            this.radialGaugeNeedle6.Name = "radialGaugeNeedle6";
+            this.radialGaugeNeedle6.PointRadiusPercentage = 6D;
+            this.radialGaugeNeedle6.Text = "radialGaugeNeedle2";
+            this.radialGaugeNeedle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeNeedle6.Thickness = 2D;
+            this.radialGaugeNeedle6.Value = 0F;
+            // 
+            // radialGaugeSingleLabel7
+            // 
+            this.radialGaugeSingleLabel7.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.radialGaugeSingleLabel7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabel7.LabelText = "Pot";
+            this.radialGaugeSingleLabel7.LocationPercentage = new System.Drawing.SizeF(-0.2F, 0.2F);
+            this.radialGaugeSingleLabel7.Name = "radialGaugeSingleLabel7";
+            this.radialGaugeSingleLabel7.Text = "radialGaugeSingleLabel1";
+            this.radialGaugeSingleLabel7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // radialGaugeSingleLabel8
+            // 
+            this.radialGaugeSingleLabel8.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            this.radialGaugeSingleLabel8.BindValue = true;
+            this.radialGaugeSingleLabel8.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabel8.LabelText = "00";
+            this.radialGaugeSingleLabel8.LocationPercentage = new System.Drawing.SizeF(0.4F, 0.2F);
+            this.radialGaugeSingleLabel8.Name = "radialGaugeSingleLabel8";
+            this.radialGaugeSingleLabel8.RightToLeft = false;
+            this.radialGaugeSingleLabel8.Text = "asd\r\n";
+            this.radialGaugeSingleLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radialGaugeSingleLabel8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabel8.TextWrap = false;
+            // 
+            // radialGaugeSingleLabel9
+            // 
+            this.radialGaugeSingleLabel9.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radialGaugeSingleLabel9.LabelText = "A";
+            this.radialGaugeSingleLabel9.LocationPercentage = new System.Drawing.SizeF(-0.2F, 0.5F);
+            this.radialGaugeSingleLabel9.Name = "radialGaugeSingleLabel9";
+            this.radialGaugeSingleLabel9.ScaleTransform = new System.Drawing.SizeF(1F, 1F);
+            this.radialGaugeSingleLabel9.Text = "A RPMs";
+            this.radialGaugeSingleLabel9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // radialGaugeSingleLabel10
+            // 
+            this.radialGaugeSingleLabel10.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.radialGaugeSingleLabel10.LabelText = "0";
+            this.radialGaugeSingleLabel10.LocationPercentage = new System.Drawing.SizeF(0.2F, 0.5F);
+            this.radialGaugeSingleLabel10.Name = "radialGaugeSingleLabel10";
+            this.radialGaugeSingleLabel10.Text = "radialGaugeSingleLabel6";
+            this.radialGaugeSingleLabel10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
             // gaugeRpm
             // 
-            this.gaugeRpm.BackColor = System.Drawing.Color.White;
+            this.gaugeRpm.BackColor = System.Drawing.Color.Transparent;
             this.gaugeRpm.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radialGaugeArc1,
             this.radialGaugeArc2,
@@ -873,7 +672,7 @@
             this.radialGaugeSingleLabel2});
             this.gaugeRpm.Location = new System.Drawing.Point(-19, 3);
             this.gaugeRpm.Name = "gaugeRpm";
-            this.gaugeRpm.RangeEnd = 6000D;
+            this.gaugeRpm.RangeEnd = 14000D;
             this.gaugeRpm.Size = new System.Drawing.Size(270, 270);
             this.gaugeRpm.TabIndex = 1;
             this.gaugeRpm.Text = "RPMs";
@@ -886,7 +685,7 @@
             this.radialGaugeArc1.BackColor2 = System.Drawing.Color.Black;
             this.radialGaugeArc1.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
             this.radialGaugeArc1.Name = "radialGaugeArc1";
-            this.radialGaugeArc1.RangeEnd = 4000D;
+            this.radialGaugeArc1.RangeEnd = 8000D;
             this.radialGaugeArc1.Text = "radialGaugeArc1";
             this.radialGaugeArc1.Width = 1D;
             // 
@@ -896,8 +695,8 @@
             this.radialGaugeArc2.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.radialGaugeArc2.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             this.radialGaugeArc2.Name = "radialGaugeArc2";
-            this.radialGaugeArc2.RangeEnd = 6000D;
-            this.radialGaugeArc2.RangeStart = 4000D;
+            this.radialGaugeArc2.RangeEnd = 14000D;
+            this.radialGaugeArc2.RangeStart = 8000D;
             this.radialGaugeArc2.Text = "radialGaugeArc2";
             this.radialGaugeArc2.Width = 1D;
             // 
@@ -948,10 +747,9 @@
             // radialGaugeLabels1
             // 
             this.radialGaugeLabels1.DrawText = false;
-            this.radialGaugeLabels1.LabelEndVisibleRange = 4000F;
+            this.radialGaugeLabels1.LabelEndVisibleRange = 8000F;
             this.radialGaugeLabels1.LabelFontSize = 4F;
             this.radialGaugeLabels1.LabelRadiusPercentage = 75F;
-            this.radialGaugeLabels1.LabelsCount = 8;
             this.radialGaugeLabels1.Name = "radialGaugeLabels1";
             this.radialGaugeLabels1.Text = "radialGaugeLabels1";
             // 
@@ -961,8 +759,7 @@
             this.radialGaugeLabels2.ForeColor = System.Drawing.Color.Red;
             this.radialGaugeLabels2.LabelFontSize = 4F;
             this.radialGaugeLabels2.LabelRadiusPercentage = 75F;
-            this.radialGaugeLabels2.LabelsCount = 8;
-            this.radialGaugeLabels2.LabelStartVisibleRange = 4000F;
+            this.radialGaugeLabels2.LabelStartVisibleRange = 8000F;
             this.radialGaugeLabels2.Name = "radialGaugeLabels2";
             this.radialGaugeLabels2.Text = "radialGaugeLabels2";
             // 
@@ -1009,7 +806,7 @@
             // 
             // gaugePar
             // 
-            this.gaugePar.BackColor = System.Drawing.Color.White;
+            this.gaugePar.BackColor = System.Drawing.Color.Transparent;
             this.gaugePar.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radialGaugeArc3,
             this.radialGaugeArc4,
@@ -1162,269 +959,580 @@
             this.radialGaugeSingleLabel6.Name = "radialGaugeSingleLabel6";
             this.radialGaugeSingleLabel6.Text = "radialGaugeSingleLabel6";
             // 
-            // gaugePotencia
+            // groupBox3
             // 
-            this.gaugePotencia.BackColor = System.Drawing.Color.Transparent;
-            this.gaugePotencia.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radialGaugeArc5,
-            this.radialGaugeArc6,
-            this.radialGaugeTicks7,
-            this.radialGaugeTicks8,
-            this.radialGaugeLabels4,
-            this.radialGaugeNeedle5,
-            this.radialGaugeNeedle6,
-            this.radialGaugeSingleLabel7,
-            this.radialGaugeSingleLabel8,
-            this.radialGaugeSingleLabel9,
-            this.radialGaugeSingleLabel10});
-            this.gaugePotencia.Location = new System.Drawing.Point(483, 3);
-            this.gaugePotencia.Name = "gaugePotencia";
-            this.gaugePotencia.RangeEnd = 40D;
-            this.gaugePotencia.Size = new System.Drawing.Size(270, 270);
-            this.gaugePotencia.TabIndex = 3;
-            this.gaugePotencia.Text = "RPMs";
-            this.gaugePotencia.Value = 0F;
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.splitContainerTiempoReal);
+            this.groupBox3.Location = new System.Drawing.Point(7, 8);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1241, 388);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Gráfico";
             // 
-            // radialGaugeArc5
+            // splitContainerTiempoReal
             // 
-            this.radialGaugeArc5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeArc5.BackColor2 = System.Drawing.Color.Black;
-            this.radialGaugeArc5.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeArc5.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeArc5.Name = "radialGaugeArc5";
-            this.radialGaugeArc5.RangeEnd = 40D;
-            this.radialGaugeArc5.Text = "radialGaugeArc1";
-            this.radialGaugeArc5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeArc5.Width = 1D;
+            this.splitContainerTiempoReal.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.splitContainerTiempoReal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerTiempoReal.Location = new System.Drawing.Point(3, 22);
+            this.splitContainerTiempoReal.Name = "splitContainerTiempoReal";
+            this.splitContainerTiempoReal.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // radialGaugeArc6
+            // splitContainerTiempoReal.Panel1
             // 
-            this.radialGaugeArc6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.radialGaugeArc6.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.radialGaugeArc6.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            this.radialGaugeArc6.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeArc6.Name = "radialGaugeArc6";
-            this.radialGaugeArc6.RangeEnd = 6000D;
-            this.radialGaugeArc6.RangeStart = 4000D;
-            this.radialGaugeArc6.Text = "radialGaugeArc2";
-            this.radialGaugeArc6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeArc6.Width = 1D;
+            this.splitContainerTiempoReal.Panel1.Controls.Add(this.radChartTiempo);
             // 
-            // radialGaugeTicks7
+            // splitContainerTiempoReal.Panel2
             // 
-            this.radialGaugeTicks7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks7.DrawText = false;
-            this.radialGaugeTicks7.Name = "radialGaugeTicks7";
-            this.radialGaugeTicks7.Text = "radialGaugeTicks1";
-            this.radialGaugeTicks7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks7.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeTicks7.TickEndIndexVisibleRange = 18F;
-            this.radialGaugeTicks7.TicksCount = 18;
-            this.radialGaugeTicks7.TicksRadiusPercentage = 84F;
-            this.radialGaugeTicks7.TickThickness = 1F;
+            this.splitContainerTiempoReal.Panel2.Controls.Add(this.radChartRpms);
+            this.splitContainerTiempoReal.Size = new System.Drawing.Size(1235, 363);
+            this.splitContainerTiempoReal.SplitterDistance = 181;
+            this.splitContainerTiempoReal.TabIndex = 0;
             // 
-            // radialGaugeTicks8
+            // radChartTiempo
             // 
-            this.radialGaugeTicks8.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks8.DrawText = false;
-            this.radialGaugeTicks8.Name = "radialGaugeTicks8";
-            this.radialGaugeTicks8.Text = "radialGaugeTicks2";
-            this.radialGaugeTicks8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks8.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeTicks8.TickEndIndexVisibleRange = 54F;
-            this.radialGaugeTicks8.TicksCount = 54;
-            this.radialGaugeTicks8.TicksLenghtPercentage = 3F;
-            this.radialGaugeTicks8.TickThickness = 1F;
+            cartesianArea5.ShowGrid = true;
+            this.radChartTiempo.AreaDesign = cartesianArea5;
+            this.radChartTiempo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radChartTiempo.Location = new System.Drawing.Point(0, 0);
+            this.radChartTiempo.Name = "radChartTiempo";
+            this.radChartTiempo.ShowLegend = true;
+            this.radChartTiempo.ShowTrackBall = true;
+            this.radChartTiempo.Size = new System.Drawing.Size(1235, 181);
+            this.radChartTiempo.TabIndex = 0;
+            this.radChartTiempo.Text = "radChartView1";
             // 
-            // radialGaugeLabels4
+            // radChartRpms
             // 
-            this.radialGaugeLabels4.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeLabels4.DrawText = false;
-            this.radialGaugeLabels4.LabelEndVisibleRange = 40F;
-            this.radialGaugeLabels4.LabelFontSize = 4F;
-            this.radialGaugeLabels4.LabelRadiusPercentage = 75F;
-            this.radialGaugeLabels4.LabelsCount = 20;
-            this.radialGaugeLabels4.Name = "radialGaugeLabels4";
-            this.radialGaugeLabels4.Text = "radialGaugeLabels1";
-            this.radialGaugeLabels4.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            cartesianArea1.ShowGrid = true;
+            this.radChartRpms.AreaDesign = cartesianArea1;
+            this.radChartRpms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radChartRpms.Location = new System.Drawing.Point(0, 0);
+            this.radChartRpms.Name = "radChartRpms";
+            this.radChartRpms.ShowLegend = true;
+            this.radChartRpms.Size = new System.Drawing.Size(1235, 178);
+            this.radChartRpms.TabIndex = 0;
+            this.radChartRpms.Text = "radChartView1";
             // 
-            // radialGaugeNeedle5
+            // tabEns
             // 
-            this.radialGaugeNeedle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
-            this.radialGaugeNeedle5.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
-            this.radialGaugeNeedle5.BindValue = true;
-            this.radialGaugeNeedle5.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeNeedle5.InnerPointRadiusPercentage = 0D;
-            this.radialGaugeNeedle5.LenghtPercentage = 78D;
-            this.radialGaugeNeedle5.Name = "radialGaugeNeedle5";
-            this.radialGaugeNeedle5.PointRadiusPercentage = 0D;
-            this.radialGaugeNeedle5.Text = "radialGaugeNeedle1";
-            this.radialGaugeNeedle5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeNeedle5.Thickness = 2D;
-            this.radialGaugeNeedle5.Value = 0F;
+            this.tabEns.Controls.Add(this.groupBox2);
+            this.tabEns.Controls.Add(this.gbEnsayos);
+            this.tabEns.Location = new System.Drawing.Point(4, 29);
+            this.tabEns.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabEns.Name = "tabEns";
+            this.tabEns.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabEns.Size = new System.Drawing.Size(1256, 686);
+            this.tabEns.TabIndex = 1;
+            this.tabEns.Text = "Ensayos";
+            this.tabEns.UseVisualStyleBackColor = true;
             // 
-            // radialGaugeNeedle6
+            // groupBox2
             // 
-            this.radialGaugeNeedle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.radialGaugeNeedle6.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.radialGaugeNeedle6.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeNeedle6.InnerPointRadiusPercentage = 0D;
-            this.radialGaugeNeedle6.LenghtPercentage = 78D;
-            this.radialGaugeNeedle6.Name = "radialGaugeNeedle6";
-            this.radialGaugeNeedle6.PointRadiusPercentage = 6D;
-            this.radialGaugeNeedle6.Text = "radialGaugeNeedle2";
-            this.radialGaugeNeedle6.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeNeedle6.Thickness = 2D;
-            this.radialGaugeNeedle6.Value = 0F;
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.splitContainerAnalisis);
+            this.groupBox2.Location = new System.Drawing.Point(216, 8);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1032, 670);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Gráfico";
             // 
-            // radialGaugeSingleLabel7
+            // splitContainerAnalisis
             // 
-            this.radialGaugeSingleLabel7.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radialGaugeSingleLabel7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel7.LabelText = "Potencia";
-            this.radialGaugeSingleLabel7.LocationPercentage = new System.Drawing.SizeF(-0.2F, 0.2F);
-            this.radialGaugeSingleLabel7.Name = "radialGaugeSingleLabel7";
-            this.radialGaugeSingleLabel7.Text = "radialGaugeSingleLabel1";
-            this.radialGaugeSingleLabel7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.splitContainerAnalisis.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.splitContainerAnalisis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerAnalisis.Location = new System.Drawing.Point(3, 22);
+            this.splitContainerAnalisis.Name = "splitContainerAnalisis";
+            this.splitContainerAnalisis.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // radialGaugeSingleLabel8
+            // splitContainerAnalisis.Panel1
             // 
-            this.radialGaugeSingleLabel8.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            this.radialGaugeSingleLabel8.BindValue = true;
-            this.radialGaugeSingleLabel8.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel8.LabelText = "00";
-            this.radialGaugeSingleLabel8.LocationPercentage = new System.Drawing.SizeF(0.4F, 0.2F);
-            this.radialGaugeSingleLabel8.Name = "radialGaugeSingleLabel8";
-            this.radialGaugeSingleLabel8.RightToLeft = false;
-            this.radialGaugeSingleLabel8.Text = "asd\r\n";
-            this.radialGaugeSingleLabel8.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.radialGaugeSingleLabel8.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel8.TextWrap = false;
+            this.splitContainerAnalisis.Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainerAnalisis.Panel1.Controls.Add(this.radChartAnalisisTiempo);
             // 
-            // radialGaugeSingleLabel9
+            // splitContainerAnalisis.Panel2
             // 
-            this.radialGaugeSingleLabel9.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radialGaugeSingleLabel9.LabelText = "A";
-            this.radialGaugeSingleLabel9.LocationPercentage = new System.Drawing.SizeF(-0.2F, 0.5F);
-            this.radialGaugeSingleLabel9.Name = "radialGaugeSingleLabel9";
-            this.radialGaugeSingleLabel9.ScaleTransform = new System.Drawing.SizeF(1F, 1F);
-            this.radialGaugeSingleLabel9.Text = "A RPMs";
-            this.radialGaugeSingleLabel9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.splitContainerAnalisis.Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainerAnalisis.Panel2.Controls.Add(this.radChartAnalisisRpms);
+            this.splitContainerAnalisis.Size = new System.Drawing.Size(1026, 645);
+            this.splitContainerAnalisis.SplitterDistance = 323;
+            this.splitContainerAnalisis.TabIndex = 0;
             // 
-            // radialGaugeSingleLabel10
+            // radChartAnalisisTiempo
             // 
-            this.radialGaugeSingleLabel10.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel10.LabelText = "0";
-            this.radialGaugeSingleLabel10.LocationPercentage = new System.Drawing.SizeF(0.2F, 0.5F);
-            this.radialGaugeSingleLabel10.Name = "radialGaugeSingleLabel10";
-            this.radialGaugeSingleLabel10.Text = "radialGaugeSingleLabel6";
-            this.radialGaugeSingleLabel10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            cartesianArea2.ShowGrid = true;
+            this.radChartAnalisisTiempo.AreaDesign = cartesianArea2;
+            this.radChartAnalisisTiempo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radChartAnalisisTiempo.Location = new System.Drawing.Point(0, 0);
+            this.radChartAnalisisTiempo.Name = "radChartAnalisisTiempo";
+            this.radChartAnalisisTiempo.ShowLegend = true;
+            this.radChartAnalisisTiempo.ShowTrackBall = true;
+            this.radChartAnalisisTiempo.Size = new System.Drawing.Size(1026, 323);
+            this.radChartAnalisisTiempo.TabIndex = 4;
             // 
-            // gaugeAfr
+            // radChartAnalisisRpms
             // 
-            this.gaugeAfr.BackColor = System.Drawing.Color.White;
-            this.gaugeAfr.Items.AddRange(new Telerik.WinControls.RadItem[] {
-            this.radialGaugeArc7,
-            this.radialGaugeTicks9,
-            this.radialGaugeTicks10,
-            this.radialGaugeLabels5,
-            this.radialGaugeNeedle7,
-            this.radialGaugeSingleLabel11,
-            this.radialGaugeSingleLabel12});
-            this.gaugeAfr.Location = new System.Drawing.Point(735, 3);
-            this.gaugeAfr.Name = "gaugeAfr";
-            this.gaugeAfr.RangeEnd = 20D;
-            this.gaugeAfr.RangeStart = 5D;
-            this.gaugeAfr.Size = new System.Drawing.Size(270, 270);
-            this.gaugeAfr.TabIndex = 2;
-            this.gaugeAfr.Text = "RPMs";
-            this.gaugeAfr.Value = 0F;
+            cartesianArea3.ShowGrid = true;
+            this.radChartAnalisisRpms.AreaDesign = cartesianArea3;
+            this.radChartAnalisisRpms.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.radChartAnalisisRpms.Location = new System.Drawing.Point(0, 0);
+            this.radChartAnalisisRpms.Name = "radChartAnalisisRpms";
+            this.radChartAnalisisRpms.ShowLegend = true;
+            this.radChartAnalisisRpms.Size = new System.Drawing.Size(1026, 318);
+            this.radChartAnalisisRpms.TabIndex = 6;
             // 
-            // radialGaugeArc7
+            // gbEnsayos
             // 
-            this.radialGaugeArc7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeArc7.BackColor2 = System.Drawing.Color.Black;
-            this.radialGaugeArc7.BackColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeArc7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeArc7.Name = "radialGaugeArc7";
-            this.radialGaugeArc7.RangeEnd = 4000D;
-            this.radialGaugeArc7.Text = "radialGaugeArc1";
-            this.radialGaugeArc7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeArc7.Width = 1D;
+            this.gbEnsayos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gbEnsayos.Controls.Add(this.lblOffset);
+            this.gbEnsayos.Controls.Add(this.nudOffset);
+            this.gbEnsayos.Controls.Add(this.butAbrirEnsayos);
+            this.gbEnsayos.Controls.Add(this.cbEnsayos);
+            this.gbEnsayos.Controls.Add(this.butRefrescar);
+            this.gbEnsayos.Controls.Add(this.lbEnsayos);
+            this.gbEnsayos.Location = new System.Drawing.Point(7, 8);
+            this.gbEnsayos.Name = "gbEnsayos";
+            this.gbEnsayos.Size = new System.Drawing.Size(203, 670);
+            this.gbEnsayos.TabIndex = 1;
+            this.gbEnsayos.TabStop = false;
+            this.gbEnsayos.Text = "Ensayos realizados";
             // 
-            // radialGaugeTicks9
+            // butAbrirEnsayos
             // 
-            this.radialGaugeTicks9.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks9.DrawText = false;
-            this.radialGaugeTicks9.Name = "radialGaugeTicks9";
-            this.radialGaugeTicks9.Text = "radialGaugeTicks1";
-            this.radialGaugeTicks9.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks9.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeTicks9.TickEndIndexVisibleRange = 18F;
-            this.radialGaugeTicks9.TicksCount = 18;
-            this.radialGaugeTicks9.TicksRadiusPercentage = 84F;
-            this.radialGaugeTicks9.TickThickness = 1F;
+            this.butAbrirEnsayos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.butAbrirEnsayos.Location = new System.Drawing.Point(6, 603);
+            this.butAbrirEnsayos.Name = "butAbrirEnsayos";
+            this.butAbrirEnsayos.Size = new System.Drawing.Size(191, 29);
+            this.butAbrirEnsayos.TabIndex = 5;
+            this.butAbrirEnsayos.Text = "Abrir ensayos";
+            this.butAbrirEnsayos.UseVisualStyleBackColor = true;
+            this.butAbrirEnsayos.Click += new System.EventHandler(this.butAbrirEnsayos_Click);
             // 
-            // radialGaugeTicks10
+            // cbEnsayos
             // 
-            this.radialGaugeTicks10.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks10.DrawText = false;
-            this.radialGaugeTicks10.Name = "radialGaugeTicks10";
-            this.radialGaugeTicks10.Text = "radialGaugeTicks2";
-            this.radialGaugeTicks10.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeTicks10.TickColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.radialGaugeTicks10.TickEndIndexVisibleRange = 54F;
-            this.radialGaugeTicks10.TicksCount = 54;
-            this.radialGaugeTicks10.TicksLenghtPercentage = 3F;
-            this.radialGaugeTicks10.TickThickness = 1F;
+            this.cbEnsayos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEnsayos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEnsayos.FormattingEnabled = true;
+            this.cbEnsayos.Location = new System.Drawing.Point(6, 569);
+            this.cbEnsayos.Name = "cbEnsayos";
+            this.cbEnsayos.Size = new System.Drawing.Size(191, 28);
+            this.cbEnsayos.TabIndex = 4;
+            this.cbEnsayos.SelectedIndexChanged += new System.EventHandler(this.cbEnsayos_SelectedIndexChanged);
             // 
-            // radialGaugeLabels5
+            // butRefrescar
             // 
-            this.radialGaugeLabels5.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeLabels5.DrawText = false;
-            this.radialGaugeLabels5.LabelEndVisibleRange = 20F;
-            this.radialGaugeLabels5.LabelFontSize = 4F;
-            this.radialGaugeLabels5.LabelRadiusPercentage = 75F;
-            this.radialGaugeLabels5.LabelsCount = 15;
-            this.radialGaugeLabels5.Name = "radialGaugeLabels5";
-            this.radialGaugeLabels5.Text = "radialGaugeLabels1";
-            this.radialGaugeLabels5.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.butRefrescar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.butRefrescar.Location = new System.Drawing.Point(6, 635);
+            this.butRefrescar.Name = "butRefrescar";
+            this.butRefrescar.Size = new System.Drawing.Size(191, 29);
+            this.butRefrescar.TabIndex = 3;
+            this.butRefrescar.Text = "Refrescar";
+            this.butRefrescar.UseVisualStyleBackColor = true;
+            this.butRefrescar.Click += new System.EventHandler(this.butRefrescar_Click);
             // 
-            // radialGaugeNeedle7
+            // lbEnsayos
             // 
-            this.radialGaugeNeedle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
-            this.radialGaugeNeedle7.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(110)))), ((int)(((byte)(163)))));
-            this.radialGaugeNeedle7.BindValue = true;
-            this.radialGaugeNeedle7.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeNeedle7.InnerPointRadiusPercentage = 0D;
-            this.radialGaugeNeedle7.LenghtPercentage = 78D;
-            this.radialGaugeNeedle7.Name = "radialGaugeNeedle7";
-            this.radialGaugeNeedle7.PointRadiusPercentage = 0D;
-            this.radialGaugeNeedle7.Text = "radialGaugeNeedle1";
-            this.radialGaugeNeedle7.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeNeedle7.Thickness = 2D;
-            this.radialGaugeNeedle7.Value = 0F;
+            this.lbEnsayos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnsayos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEnsayos.FormattingEnabled = true;
+            this.lbEnsayos.ItemHeight = 20;
+            this.lbEnsayos.Location = new System.Drawing.Point(6, 25);
+            this.lbEnsayos.Name = "lbEnsayos";
+            this.lbEnsayos.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbEnsayos.Size = new System.Drawing.Size(191, 504);
+            this.lbEnsayos.TabIndex = 2;
+            this.lbEnsayos.SelectedIndexChanged += new System.EventHandler(this.lbEnsayos_SelectedIndexChanged);
             // 
-            // radialGaugeSingleLabel11
+            // tabPage1
             // 
-            this.radialGaugeSingleLabel11.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.radialGaugeSingleLabel11.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel11.LabelText = "AFR";
-            this.radialGaugeSingleLabel11.LocationPercentage = new System.Drawing.SizeF(0F, 0.3F);
-            this.radialGaugeSingleLabel11.Name = "radialGaugeSingleLabel11";
-            this.radialGaugeSingleLabel11.Text = "radialGaugeSingleLabel1";
-            this.radialGaugeSingleLabel11.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1256, 686);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Configuración";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // radialGaugeSingleLabel12
+            // groupBox5
             // 
-            this.radialGaugeSingleLabel12.BindValue = true;
-            this.radialGaugeSingleLabel12.DisabledTextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.radialGaugeSingleLabel12.LabelText = "0";
-            this.radialGaugeSingleLabel12.LocationPercentage = new System.Drawing.SizeF(0F, 0.5F);
-            this.radialGaugeSingleLabel12.Name = "radialGaugeSingleLabel12";
-            this.radialGaugeSingleLabel12.Text = "radialGaugeSingleLabel2";
-            this.radialGaugeSingleLabel12.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.groupBox5.Controls.Add(this.label4);
+            this.groupBox5.Controls.Add(this.nudMarcha);
+            this.groupBox5.Controls.Add(this.txtRpmInicio);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.textBox16);
+            this.groupBox5.Controls.Add(this.textBox15);
+            this.groupBox5.Controls.Add(this.textBox14);
+            this.groupBox5.Controls.Add(this.textBox13);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.label16);
+            this.groupBox5.Controls.Add(this.txtInerciaVolante);
+            this.groupBox5.Controls.Add(this.txtPesoVolante);
+            this.groupBox5.Controls.Add(this.txtRadioVolante);
+            this.groupBox5.Controls.Add(this.txtReduccionPrimaria);
+            this.groupBox5.Controls.Add(this.txtRelacion6);
+            this.groupBox5.Controls.Add(this.txtRelacion5);
+            this.groupBox5.Controls.Add(this.txtRelacion4);
+            this.groupBox5.Controls.Add(this.txtRelacion3);
+            this.groupBox5.Controls.Add(this.txtRelacion2);
+            this.groupBox5.Controls.Add(this.txtRelacion1);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.label13);
+            this.groupBox5.Controls.Add(this.label12);
+            this.groupBox5.Controls.Add(this.label11);
+            this.groupBox5.Controls.Add(this.label10);
+            this.groupBox5.Controls.Add(this.label9);
+            this.groupBox5.Controls.Add(this.label8);
+            this.groupBox5.Controls.Add(this.label7);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Controls.Add(this.label3);
+            this.groupBox5.Location = new System.Drawing.Point(8, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(627, 337);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Configuración del banco";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(80, 288);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Marcha:";
+            // 
+            // nudMarcha
+            // 
+            this.nudMarcha.Location = new System.Drawing.Point(157, 286);
+            this.nudMarcha.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.nudMarcha.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMarcha.Name = "nudMarcha";
+            this.nudMarcha.Size = new System.Drawing.Size(92, 26);
+            this.nudMarcha.TabIndex = 32;
+            this.nudMarcha.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.nudMarcha.ValueChanged += new System.EventHandler(this.nudMarcha_ValueChanged);
+            // 
+            // txtRpmInicio
+            // 
+            this.txtRpmInicio.Location = new System.Drawing.Point(157, 254);
+            this.txtRpmInicio.Name = "txtRpmInicio";
+            this.txtRpmInicio.Size = new System.Drawing.Size(92, 26);
+            this.txtRpmInicio.TabIndex = 31;
+            this.txtRpmInicio.Text = "2500";
+            this.txtRpmInicio.TextChanged += new System.EventHandler(this.txtRpmInicio_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(51, 257);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "RPMs inicio:";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(462, 279);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(112, 26);
+            this.textBox16.TabIndex = 29;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(462, 247);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(112, 26);
+            this.textBox15.TabIndex = 28;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(462, 215);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(112, 26);
+            this.textBox14.TabIndex = 27;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(462, 183);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(112, 26);
+            this.textBox13.TabIndex = 26;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(310, 282);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(139, 20);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "X mínimo gráfico 2";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(310, 250);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(143, 20);
+            this.label19.TabIndex = 24;
+            this.label19.Text = "X máximo gráfico 2";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(310, 218);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(139, 20);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "X mínimo gráfico 1";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(310, 186);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(143, 20);
+            this.label16.TabIndex = 22;
+            this.label16.Text = "X máximo gráfico 1";
+            // 
+            // txtInerciaVolante
+            // 
+            this.txtInerciaVolante.Location = new System.Drawing.Point(462, 94);
+            this.txtInerciaVolante.Name = "txtInerciaVolante";
+            this.txtInerciaVolante.ReadOnly = true;
+            this.txtInerciaVolante.Size = new System.Drawing.Size(112, 26);
+            this.txtInerciaVolante.TabIndex = 19;
+            // 
+            // txtPesoVolante
+            // 
+            this.txtPesoVolante.Location = new System.Drawing.Point(462, 62);
+            this.txtPesoVolante.Name = "txtPesoVolante";
+            this.txtPesoVolante.Size = new System.Drawing.Size(112, 26);
+            this.txtPesoVolante.TabIndex = 18;
+            this.txtPesoVolante.Text = "72,96";
+            // 
+            // txtRadioVolante
+            // 
+            this.txtRadioVolante.Location = new System.Drawing.Point(462, 30);
+            this.txtRadioVolante.Name = "txtRadioVolante";
+            this.txtRadioVolante.Size = new System.Drawing.Size(112, 26);
+            this.txtRadioVolante.TabIndex = 17;
+            this.txtRadioVolante.Text = "232";
+            // 
+            // txtReduccionPrimaria
+            // 
+            this.txtReduccionPrimaria.Location = new System.Drawing.Point(157, 222);
+            this.txtReduccionPrimaria.Name = "txtReduccionPrimaria";
+            this.txtReduccionPrimaria.Size = new System.Drawing.Size(112, 26);
+            this.txtReduccionPrimaria.TabIndex = 16;
+            this.txtReduccionPrimaria.Text = "2,808";
+            this.txtReduccionPrimaria.TextChanged += new System.EventHandler(this.txtReduccionPrimaria_TextChanged);
+            // 
+            // txtRelacion6
+            // 
+            this.txtRelacion6.Location = new System.Drawing.Point(111, 190);
+            this.txtRelacion6.Name = "txtRelacion6";
+            this.txtRelacion6.Size = new System.Drawing.Size(112, 26);
+            this.txtRelacion6.TabIndex = 15;
+            this.txtRelacion6.Text = "0,962";
+            this.txtRelacion6.TextChanged += new System.EventHandler(this.txtRelacion6_TextChanged);
+            // 
+            // txtRelacion5
+            // 
+            this.txtRelacion5.Location = new System.Drawing.Point(111, 158);
+            this.txtRelacion5.Name = "txtRelacion5";
+            this.txtRelacion5.Size = new System.Drawing.Size(112, 26);
+            this.txtRelacion5.TabIndex = 14;
+            this.txtRelacion5.Text = "1,115";
+            this.txtRelacion5.TextChanged += new System.EventHandler(this.txtRelacion5_TextChanged);
+            // 
+            // txtRelacion4
+            // 
+            this.txtRelacion4.Location = new System.Drawing.Point(111, 126);
+            this.txtRelacion4.Name = "txtRelacion4";
+            this.txtRelacion4.Size = new System.Drawing.Size(112, 26);
+            this.txtRelacion4.TabIndex = 13;
+            this.txtRelacion4.Text = "1,304";
+            this.txtRelacion4.TextChanged += new System.EventHandler(this.txtRelacion4_TextChanged);
+            // 
+            // txtRelacion3
+            // 
+            this.txtRelacion3.Location = new System.Drawing.Point(111, 94);
+            this.txtRelacion3.Name = "txtRelacion3";
+            this.txtRelacion3.Size = new System.Drawing.Size(112, 26);
+            this.txtRelacion3.TabIndex = 12;
+            this.txtRelacion3.Text = "1,571";
+            this.txtRelacion3.TextChanged += new System.EventHandler(this.txtRelacion3_TextChanged);
+            // 
+            // txtRelacion2
+            // 
+            this.txtRelacion2.Location = new System.Drawing.Point(111, 62);
+            this.txtRelacion2.Name = "txtRelacion2";
+            this.txtRelacion2.Size = new System.Drawing.Size(112, 26);
+            this.txtRelacion2.TabIndex = 11;
+            this.txtRelacion2.Text = "2,117";
+            this.txtRelacion2.TextChanged += new System.EventHandler(this.txtRelacion2_TextChanged);
+            // 
+            // txtRelacion1
+            // 
+            this.txtRelacion1.Location = new System.Drawing.Point(111, 30);
+            this.txtRelacion1.Name = "txtRelacion1";
+            this.txtRelacion1.Size = new System.Drawing.Size(112, 26);
+            this.txtRelacion1.TabIndex = 10;
+            this.txtRelacion1.Text = "3,333";
+            this.txtRelacion1.TextChanged += new System.EventHandler(this.txtRelacion1_TextChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(336, 94);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(116, 20);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Inercia Volante";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(336, 63);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 20);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Peso Volante";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(336, 33);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(110, 20);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Radio Volante";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 222);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 20);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Reducción primaria";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 20);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Relación 2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(84, 20);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Relación 3";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 126);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(84, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Relación 4";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 157);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Relación 5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 190);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Relación 6";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Relación 1";
+            // 
+            // nudOffset
+            // 
+            this.nudOffset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudOffset.Increment = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.nudOffset.Location = new System.Drawing.Point(104, 537);
+            this.nudOffset.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.nudOffset.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.nudOffset.Name = "nudOffset";
+            this.nudOffset.Size = new System.Drawing.Size(93, 26);
+            this.nudOffset.TabIndex = 6;
+            this.nudOffset.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudOffset.ValueChanged += new System.EventHandler(this.nudOffset_ValueChanged);
+            // 
+            // lblOffset
+            // 
+            this.lblOffset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblOffset.AutoSize = true;
+            this.lblOffset.Location = new System.Drawing.Point(6, 539);
+            this.lblOffset.Name = "lblOffset";
+            this.lblOffset.Size = new System.Drawing.Size(92, 20);
+            this.lblOffset.TabIndex = 7;
+            this.lblOffset.Text = "Offset (ms):";
             // 
             // frmPrincipal
             // 
@@ -1434,6 +1542,7 @@
             this.Controls.Add(this.tabBanco);
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmPrincipal";
             this.Text = "Captura de banco de inercia";
@@ -1452,21 +1561,32 @@
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeAfr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugePotencia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugeRpm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gaugePar)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartPrincipal)).EndInit();
+            this.splitContainerTiempoReal.Panel1.ResumeLayout(false);
+            this.splitContainerTiempoReal.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTiempoReal)).EndInit();
+            this.splitContainerTiempoReal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radChartTiempo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radChartRpms)).EndInit();
             this.tabEns.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartAnalisis)).EndInit();
+            this.splitContainerAnalisis.Panel1.ResumeLayout(false);
+            this.splitContainerAnalisis.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerAnalisis)).EndInit();
+            this.splitContainerAnalisis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radChartAnalisisTiempo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radChartAnalisisRpms)).EndInit();
             this.gbEnsayos.ResumeLayout(false);
             this.gbEnsayos.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugeRpm)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugePar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugePotencia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gaugeAfr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMarcha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudOffset)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1478,10 +1598,8 @@
         private System.Windows.Forms.TabControl tabBanco;
         private System.Windows.Forms.TabPage tabCaptura;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartPrincipal;
         private System.Windows.Forms.TabPage tabEns;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartAnalisis;
         private System.Windows.Forms.GroupBox gbEnsayos;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelSpring;
         private System.Windows.Forms.ToolStripStatusLabel lblEstado;
@@ -1509,8 +1627,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox14;
@@ -1519,10 +1635,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button butRefrescar;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtOffset;
         private System.Windows.Forms.ComboBox cbEnsayos;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
@@ -1583,5 +1696,16 @@
         private Telerik.WinControls.UI.Gauges.RadialGaugeNeedle radialGaugeNeedle7;
         private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel11;
         private Telerik.WinControls.UI.Gauges.RadialGaugeSingleLabel radialGaugeSingleLabel12;
+        private System.Windows.Forms.SplitContainer splitContainerTiempoReal;
+        private Telerik.WinControls.UI.RadChartView radChartTiempo;
+        private Telerik.WinControls.UI.RadChartView radChartRpms;
+        private System.Windows.Forms.SplitContainer splitContainerAnalisis;
+        private Telerik.WinControls.UI.RadChartView radChartAnalisisTiempo;
+        private Telerik.WinControls.UI.RadChartView radChartAnalisisRpms;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nudMarcha;
+        private System.Windows.Forms.Button butAbrirEnsayos;
+        private System.Windows.Forms.Label lblOffset;
+        private System.Windows.Forms.NumericUpDown nudOffset;
     }
 }
